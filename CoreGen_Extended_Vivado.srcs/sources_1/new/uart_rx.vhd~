@@ -1,0 +1,110 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.numeric_std.all;
+
+entity uart_rx is
+  generic(
+    clks_per_bit : integer := 115       -- Needs to be set for desired baudrate
+    );
+  port(
+    clk       : in  std_logic;
+    rx_serial : in  std_logic;
+    rx_dv     : out std_logic;
+    rx_byte   : out std_logic_vector(7 downto 0)
+    );
+end uart_rx;
+
+architecture rtl of uart_rx is
+
+  type state is (S_Idle, S_Rx_Start_Bit, S_Rx_Data_Bits, S_Rx_Stop_Bit, S_Cleanup);
+
+  signal current_state : state := S_Idle;
+
+  signal rx_data_r : std_logic := '0';
+  signal rx_data   : std_logic := '0';
+
+  signal clk_count   : integer range 0 to clks_per_bit-1 := '0';
+  signal bit_index   : integer range 0 to 7              := '0';
+  signal rx_byte_sig : std_logic_vector(7 downto 0)      := '0';
+  signal rx_dv_sig   : std_logic                         := '0';
+
+
+begin
+  double_register : process(clk)
+  begin
+    if(rising_edge(clk)) then
+      rx_data_r <= rx_serial;
+      rx_data   <= rx_data_r;
+    end if;
+  end process;
+
+  uart_receive : process(clk)
+  begin
+    if(rising_edge(clk)) then
+      case(current_state) is
+        when S_Idle =>
+          rx_dv_sig <= '0';
+          clk_count <= '0';
+          bit_index <= '0';
+
+          if(rx_data = '0') then
+            current_state <= S_Rx_Start_Bit;
+          else
+            current_state <= S_Idle;
+          end if;
+
+        when S_Rx_Start_Bit =>
+          if(clk_count = (clks_per_bit-1)/2) then
+            if(rx_data = '0') then
+              clk_count     <= 0;
+              current_state <= S_Rx_Data_Bits;
+            else
+              current_state <= S_Idle;
+            end if;
+          else
+            clk_count     <= clk_count + 1;
+            current_state <= S_Rx_Start_Bit;
+          end if;
+
+
+        when S_Rx_Data_Bits =>
+          if(clk_count < clks_per_bit-1) then
+            clk_count     <= clk_count + 1;
+            current_state <= S_Rx_Data_Bits;
+          else
+            clk_count              <= 0;
+            rx_byte_sig(bit_index) <= rx_data;
+            if(bit_index < 7) then
+              bit_index     <= bit_index + 1;
+              current_state <= S_Rx_Data_Bits;
+            else
+              bit_index     <= 0;
+              current_state <= S_Rx_Stop_Bit;
+            end if;
+          end if;
+
+        when S_Rx_Stop_Bit =>
+          if(clk_count < clks_per_bit-1) then
+            clk_count     <= clk_count + 1;
+            current_state <= S_Rx_Stop_Bit;
+          else
+            rx_dv_sig     <= '1';
+            clk_count     <= 0;
+            current_state <= S_Cleanup;
+          end if;
+
+        when S_Cleanup =>
+          current_state <= S_Idle;
+          rx_dv_sig     <= '0';
+
+        when others =>
+          current_state <= S_Idle;
+
+      end case;
+    end if;
+  end process;
+
+  rx_dv   <= rx_dv_sig;
+  rx_byte <= rx_byte_sig;
+end rtl;
+

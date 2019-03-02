@@ -1,0 +1,16 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd,1551218541,vhdl,,,,alu_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/computer_core_1.vhd,1551217110,vhdl,,,,computer_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/computer_core_1_TB.vhd,1551301913,vhdl,,,,computer_core_1_tb,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd,1551217194,vhdl,,,,control_unit_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/cpu_core_1.vhd,1551217382,vhdl,,,,cpu_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd,1551214951,vhdl,,,,data_path_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/instructions_core_1.vhd,1551216663,vhdl,C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd;C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd;C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/rom_128x8_sync_core_1.vhd,,,instructions_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd,1551117436,vhdl,,,,memory_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/rom_128x8_sync_core_1.vhd,1551216691,vhdl,,,,rom_128x8_sync_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/rw_96x8_sync_core_1.vhd,1551116668,vhdl,,,,rw_96x8_sync_core_1,,,,,,,,
+C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.srcs/sources_1/new/stack.vhd,1551116699,vhdl,,,,stack_1,,,,,,,,

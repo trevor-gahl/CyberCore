@@ -1,0 +1,87 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Feb 26 15:14:59 2019
+| Host         : DESKTOP-TN1C6Q5 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a35t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    18 |
+| Unused register locations in slices containing registers |    30 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            2 |
+|      2 |            1 |
+|      4 |            1 |
+|      7 |            2 |
+|      8 |           10 |
+|    16+ |            2 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              17 |            9 |
+| No           | No                    | Yes                    |              27 |           12 |
+| No           | Yes                   | No                     |               3 |            2 |
+| Yes          | No                    | No                     |               8 |            5 |
+| Yes          | No                    | Yes                    |              60 |           22 |
+| Yes          | Yes                   | No                     |              15 |            4 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------------------+-----------------------------------------------------+------------------------------------+------------------+----------------+
+|                  Clock Signal                  |                    Enable Signal                    |          Set/Reset Signal          | Slice Load Count | Bel Load Count |
++------------------------------------------------+-----------------------------------------------------+------------------------------------+------------------+----------------+
+|                                                |                                                     | comp1/CPU1/control_unit1/AS[0]     |                1 |              1 |
+|  comp1/CPU1/control_unit1/fault_reg[0]_i_1_n_0 |                                                     |                                    |                1 |              1 |
+|                                                |                                                     | comp1/CPU1/control_unit1/AR[0]     |                1 |              2 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/current_state_reg[3]_0[0]  | comp1/CPU1/data_path1/RESET        |                1 |              4 |
+|  uart_clock_div/inst/clk_out1                  | uart_receive/clk_count[6]_i_2_n_0                   | uart_receive/clk_count[6]_i_1_n_0  |                2 |              7 |
+|  CLK_IBUF_BUFG                                 |                                                     | comp1/CPU1/data_path1/RESET        |                7 |              7 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/data_path1/MAR_reg[6]_1                  | comp1/CPU1/data_path1/MAR_reg[6]_2 |                2 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/data_path1/MAR_reg[5]_0                  |                                    |                2 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/data_path1/E[0]                          | comp1/CPU1/data_path1/RESET        |                4 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/data_path1/MAR_reg[7]_2[0]               |                                    |                5 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/E[0]                       | comp1/CPU1/data_path1/RESET        |                3 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/current_state_reg[6]_9[0]  | comp1/CPU1/data_path1/RESET        |                2 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/current_state_reg[4]_0[0]  | comp1/CPU1/data_path1/RESET        |                2 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/current_state_reg[4]_1[0]  | comp1/CPU1/data_path1/RESET        |                5 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/current_state_reg[6]_10[0] | comp1/CPU1/data_path1/RESET        |                3 |              8 |
+|  CLK_IBUF_BUFG                                 | comp1/CPU1/control_unit1/current_state_reg[2]_2[0]  | comp1/CPU1/data_path1/RESET        |                2 |              8 |
+|  uart_clock_div/inst/clk_out1                  |                                                     |                                    |                8 |             16 |
+|  CLK_IBUF_BUFG                                 |                                                     | RESET_IBUF                         |                5 |             20 |
++------------------------------------------------+-----------------------------------------------------+------------------------------------+------------------+----------------+
+
+
