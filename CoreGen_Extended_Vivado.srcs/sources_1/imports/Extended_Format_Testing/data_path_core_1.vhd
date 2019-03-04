@@ -112,7 +112,7 @@ begin
 
   INSTRUCTION_REGISTER : process (clock, reset)
   begin
-    if (Reset = '0') then
+    if (Reset = '1') then
       IR <= x"00";
     elsif (clock'event and clock = '1') then
       if (IR_Load = '1') then
@@ -123,7 +123,7 @@ begin
 
   MEMORY_ADDRESS_REGISTER : process (clock, reset)
   begin
-    if (Reset = '0') then
+    if (Reset = '1') then
       MAR <= x"00";
     elsif (clock'event and clock = '1') then
       if (MAR_Load = '1' and SP_Enable = '0') then
@@ -136,7 +136,7 @@ begin
 
   PROGRAM_COUNTER : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       PC_uns <= x"00";
     elsif (clock'event and clock = '1') then
       if (PC_Load = '1') then
@@ -150,7 +150,7 @@ begin
 
   A_REGISTER : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       A <= x"00";
     elsif (clock'event and clock = '1') then
       if (A_Load = '1') then
@@ -161,7 +161,7 @@ begin
 
   B_REGISTER : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       B <= x"00";
     elsif (clock'event and clock = '1') then
       if (B_Load = '1') then
@@ -172,7 +172,7 @@ begin
 
   CONDITION_CODE_REGISTER : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       CCR_Result <= x"0";
     elsif (clock'event and clock = '1') then
       if (CCR_Load = '1') then
@@ -183,7 +183,7 @@ begin
 
   STACK_POINTER : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       SP_uns <= x"C8";
     elsif(clock'event and clock = '1') then
       if (SP_Enable = '1') then

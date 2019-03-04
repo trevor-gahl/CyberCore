@@ -1,0 +1,7 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto b564c189e3f747f0ada0ba6c9ef8bb5d --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot computer_core_1_TB_func_impl xil_defaultlib.computer_core_1_TB xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-3353] formal port 'sl_iport0' has no actual or default value [C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/impl/func/xsim/computer_core_1_TB_func_impl.vhd:289270]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

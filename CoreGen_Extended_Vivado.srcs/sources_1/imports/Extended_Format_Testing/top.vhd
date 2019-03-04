@@ -111,6 +111,17 @@ component uart_tx is
           clock         : in  std_logic;
           cpu_exception : out std_logic);
   end component;
+  
+  component ila_0 is
+    port(
+         clk : IN STD_LOGIC;
+        probe0 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe1 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe4 : IN STD_LOGIC_VECTOR(7 DOWNTO 0)
+);
+end component;
 
   signal port_out_temp01, port_out_temp02, port_out_temp03       : std_logic_vector(7 downto 0);
   signal clock_slow                                              : std_logic;
@@ -131,9 +142,10 @@ component uart_tx is
   signal tx_done_sig    : std_logic;
   
   -- Interrupts
-  signal interrupt      : std_logic_vector(3 downto 0);
-  signal interrupt_clr  : std_logic;
-  signal rx_read        : std_logic_vector(7 downto 0);
+  signal interrupt      : std_logic_vector(3 downto 0) := "0000";
+  signal interrupt_clr  : std_logic := '0';
+  signal rx_read        : std_logic_vector(7 downto 0) := "00000000";
+  signal uart           : std_logic := '0';
 
 begin
 
@@ -141,7 +153,7 @@ begin
   LED(1) <= exception_flag_2;
   LED(2) <= exception_flag_3;
 
-  sw_data_in <= "0000" & SW;
+--  sw_data_in <= "0000" & SW;
   
   -- Instantiate UART transmitter
   uart_transmit : uart_tx
@@ -168,7 +180,7 @@ begin
       rx_dv     => rx_dv_sig,
       rx_byte   => rx_byte_val
       );
-display_value <= rx_byte_val & port_out_temp03;
+display_value <= rx_read & port_out_temp01;
   clock_div : clock_div_prec port map (Clock_in  => CLK,
                                        Sel       => "11",
                                        Reset     => RESET,
@@ -183,9 +195,9 @@ display_value <= rx_byte_val & port_out_temp03;
                                     interrupt     => interrupt,
                                     interrupt_clr => interrupt_clr,
                                     cpu_exception => exception_flag_1,
-                                    port_in_00    => sw_data_in,
+                                    port_in_00    => rx_read,
                                     port_in_01    => highs,
-                                    port_in_02    => rx_read,
+                                    port_in_02    => highs,
                                     port_in_03    => highs,
                                     port_in_04    => highs,
                                     port_in_05    => highs,
@@ -204,19 +216,38 @@ display_value <= rx_byte_val & port_out_temp03;
                                     port_out_02   => port_out_temp03
                                     );
 
+debug : ila_0 port map(
+        clk => CLK,
+        probe0 =>port_out_temp01,
+        probe1 =>port_out_temp02,
+        probe2 =>port_out_temp03,
+        probe3 =>rx_read,
+        probe4 =>rx_byte_val
+        );
 
---  int_clr : process(interrupt_clr)
---    begin
---    if(interrupt_clr = '1') then
---      interrupt <= "0000";
---    end if;
---    end process;
 
---  uart_interrupt : process(rx_byte_val)
---  begin
---    rx_read <= rx_byte_val;
---    interrupt <= "0001";
---  end process;
+int_proc: process(CLK)
+begin
+if(rising_edge(CLK)) then
+  if(interrupt_clr = '1') then
+    interrupt <= "0000";
+  else
+   if(uart = '1') then
+    interrupt <= "0001";
+    uart <= '0';
+   else
+    uart <= '0';
+    interrupt <= (others => '0');
+    end if;
+   end if;
+ end if;
+end process;
+
+  uart_interrupt : process(rx_dv_sig)
+  begin
+    rx_read <= rx_byte_val;
+    uart <= '1';
+  end process;
 
 --  check_result : process(clock_slow, voter_result)
 --  begin

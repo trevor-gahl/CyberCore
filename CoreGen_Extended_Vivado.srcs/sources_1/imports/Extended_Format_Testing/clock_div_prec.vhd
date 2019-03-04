@@ -21,7 +21,7 @@ begin
 
   clock_div_prec_process : process(Clock_In, reset)
   begin
-    if(reset = '0') then
+    if(reset = '1') then
       counter    <= 0;
       clock_temp <= '0';
     elsif(rising_edge(Clock_In)) then

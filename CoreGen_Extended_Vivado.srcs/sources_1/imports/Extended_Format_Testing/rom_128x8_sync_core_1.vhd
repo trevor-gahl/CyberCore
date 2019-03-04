@@ -26,21 +26,10 @@ architecture rom_128x8_sync_arch of rom_128x8_sync_core_1 is
   constant ROM : rom_type := (
                                 0 => LDA_IMM,
                                 1 => x"A0",
-                                2 => x"11",
-                                3 => INC_A,
-                                4 => PSH_A,
-                                5 => INC_A,
-                                6 => PSH_A,
-                                7 => INC_A,
-                                8 => STA_DIR,
-                                9 => x"86",
-                                10 => LDB_DIR,
-                                11 => x"86",
-                                12 => PLL_B,
-                                13 => PLL_B,
-                                14 => PLL_B,
-                                15 => BRA,
-                                16 => x"00",
+                                2 => STA_DIR,
+                                3 => x"E0",
+                                4 => BRA,
+                                5 => x"00",
                                 
                                 50 => LDA_IMM,
                                 51 => x"01",        -- Start of Illegal Opcode Fault. Pushes A, B, and PC to Stack
@@ -49,9 +38,9 @@ architecture rom_128x8_sync_arch of rom_128x8_sync_core_1 is
                                 54 => RTI,
                                 
                                 66 => LDA_DIR,
-                                67 => x"F2",
+                                67 => x"F0",
                                 68 => STA_DIR,
-                                69 => x"E2",
+                                69 => x"E0",
                                 70 => CLI,
                                 71 => RTI,
 

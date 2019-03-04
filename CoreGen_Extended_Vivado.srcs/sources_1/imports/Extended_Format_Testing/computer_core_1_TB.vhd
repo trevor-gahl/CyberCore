@@ -104,7 +104,8 @@ architecture computer_TB_arch of computer_core_1_TB is
   signal interrupt_TB      : std_logic_vector (3 downto 0):="0000";
   signal interrupt_clr  : std_logic;
   signal cpu_exception  : std_logic;
-  signal int_cnt        : std_logic_vector (3 downto 0) := (others => '0');
+  signal int_cnt        : std_logic_vector (5 downto 0) := (others => '0');
+  signal rx_sig         : std_logic_vector (7 downto 0) := (others => '0');
 
 begin
   DUT1 : computer_core_1
@@ -126,7 +127,7 @@ begin
               port_out_13   => port_out_13_TB,
               port_out_14   => port_out_14_TB,
               port_out_15   => port_out_15_TB,
-              port_in_00    => port_in_00_TB,
+              port_in_00    => rx_sig,
               port_in_01    => port_in_01_TB,
               port_in_02    => port_in_02_TB,
               port_in_03    => port_in_03_TB,
@@ -161,8 +162,8 @@ begin
 -----------------------------------------------
   RESET_STIM : process
   begin
-    reset_TB <= '0'; wait for 0.25*t_clk_per;
-    reset_TB <= '1'; wait;
+    reset_TB <= '1'; wait for 0.25*t_clk_per;
+    reset_TB <= '0'; wait;
   end process;
 -----------------------------------------------
 --int_clr : process(interrupt_clr)
@@ -172,17 +173,29 @@ begin
 --    end if;
 --    end process;
 
-
+rx_sig_proc : process (clock_TB)
+begin
+if(rising_edge(clock_TB)) then
+if(rx_sig >= "11111111") then
+  rx_sig <= (others => '0');
+else
+  rx_sig <= rx_sig +1;
+  end if;
+  end if;
+  end process;
     
 int_proc: process(clock_TB)
 begin
 if(rising_edge(clock_TB)) then
-   if(int_cnt >= "1111") then
+  if(interrupt_clr = '1') then
+    interrupt_TB <= "0000";
+  else
+   if(int_cnt >= "111111") then
     interrupt_TB <= "0001";
-    int_cnt <= "0000";
+    int_cnt <= (others => '0');
    else
     int_cnt <= int_cnt + 1;
-    
+    end if;
    end if;
  end if;
 end process;

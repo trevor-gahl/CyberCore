@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.runs/impl_1'
+HD_PWD='C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

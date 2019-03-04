@@ -2,13 +2,13 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Fri Mar  1 17:38:39 2019
-# Process ID: 782604
-# Current directory: C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/xsim.dir/computer_core_1_TB_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim\webtalk.jou
+# Start of session at: Sat Mar  2 10:48:51 2019
+# Process ID: 1936
+# Current directory: C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/xsim.dir/computer_core_1_TB_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/xsim.dir/computer_core_1_TB_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado_Rollback/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/xsim.dir/computer_core_1_TB_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Fri Mar  1 17:38:42 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.3/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Fri Mar  1 17:38:42 2019...
+source C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/xsim.dir/computer_core_1_TB_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.sim/sim_1/behav/xsim/xsim.dir/computer_core_1_TB_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sat Mar  2 10:48:53 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.3/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sat Mar  2 10:48:53 2019...

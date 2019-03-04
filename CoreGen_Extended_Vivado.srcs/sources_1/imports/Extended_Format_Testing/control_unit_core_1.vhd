@@ -151,7 +151,7 @@ begin
   -- State memory for the next state and the instructions wanted (LDA, BRA etc)
   STATE_MEMORY : process(clock, reset)
   begin
-    if(Reset = '0') then
+    if(Reset = '1') then
       current_state <= S_FETCH_0;
     elsif(clock'event and clock = '1') then
       current_state <= next_state;

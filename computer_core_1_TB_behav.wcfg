@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="618444036fs"></ZoomStartTime>
-      <ZoomEndTime time="1076311193fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="3386500000fs"></ZoomStartTime>
+      <ZoomEndTime time="3654700001fs"></ZoomEndTime>
+      <Cursor1Time time="3610000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="16" />
    <wvobject fp_name="/computer_core_1_TB/DUT1/CPU1/control_unit1/current_state" type="other">
       <obj_property name="ElementShortName">current_state</obj_property>
       <obj_property name="ObjectShortName">current_state</obj_property>
@@ -74,11 +74,15 @@
       <obj_property name="ObjectShortName">interrupt_clr</obj_property>
    </wvobject>
    <wvobject fp_name="/computer_core_1_TB/int_cnt" type="array">
-      <obj_property name="ElementShortName">int_cnt[3:0]</obj_property>
-      <obj_property name="ObjectShortName">int_cnt[3:0]</obj_property>
+      <obj_property name="ElementShortName">int_cnt[5:0]</obj_property>
+      <obj_property name="ObjectShortName">int_cnt[5:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/computer_core_1_TB/interrupt_TB" type="array">
       <obj_property name="ElementShortName">interrupt_TB[3:0]</obj_property>
       <obj_property name="ObjectShortName">interrupt_TB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/computer_core_1_TB/rx_sig" type="array">
+      <obj_property name="ElementShortName">rx_sig[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_sig[7:0]</obj_property>
    </wvobject>
 </wave_config>

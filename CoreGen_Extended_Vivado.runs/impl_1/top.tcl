@@ -65,18 +65,21 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param tcl.collectionResultDisplayLimit 0
   set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.cache/wt [current_project]
-  set_property parent.project_path C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.xpr [current_project]
-  set_property ip_output_repo C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.xpr [current_project]
+  set_property ip_output_repo C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.runs/synth_1/top.dcp
-  read_ip -quiet C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_xdc C:/Users/Trevor/Documents/Shared_Work/CoreGen_Extended_Vivado/CoreGen_Extended_Vivado.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  add_files -quiet C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.runs/synth_1/top.dcp
+  read_ip -quiet C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet c:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.srcs/sources_1/ip/ila_0/ila_0.xci
+  read_ip -quiet c:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.srcs/sources_1/ip/ila_1/ila_1.xci
+  read_xdc C:/Users/Trevor/Documents/CyberCore_RepoTest/CoreGen_Extended_Vivado.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
   link_design -top top -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
@@ -85,23 +88,6 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force top_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
   unset ACTIVE_STEP 
 }
 
@@ -156,7 +142,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   catch { write_mem_info -force top.mmi }
   write_bitstream -force top.bit 
   catch {write_debug_probes -quiet -force top}

@@ -35,6 +35,7 @@ package instructions_core_1 is
   constant PLL_PC  : std_logic_vector (7 downto 0) := x"26";  -- Only used for interrupt vector, pulls program counter off of stack
   constant RTI      : std_logic_vector (7 downto 0) := x"30"; -- Returns from interrupt
   constant CLI      : std_logic_vector (7 downto 0) := x"31"; -- Clears interrupt from processor
+  constant STI      : std_logic_vector (7 downto 0) := x"32"; -- Starts interrupt (For testing only)
 
 --------------------
 -- ALU SELECTIONS --

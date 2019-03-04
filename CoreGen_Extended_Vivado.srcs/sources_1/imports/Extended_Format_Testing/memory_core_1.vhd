@@ -68,6 +68,15 @@ architecture memory_arch of memory_core_1 is
           write    : in  std_logic);
   end component;
 
+  component ila_1 is
+    port(
+         clk : IN STD_LOGIC;
+        probe0 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe1 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        probe3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
+  end component;
+
   signal rom_data_out   : std_logic_vector(7 downto 0);
   signal rw_data_out    : std_logic_vector(7 downto 0);
   signal stack_data_out : std_logic_vector(7 downto 0);
@@ -93,6 +102,13 @@ begin
               data_in  => data_in,
               data_out => stack_data_out);
 
+  debug : ila_1 port map(
+        clk => clock,
+        probe0 =>address,
+        probe1 =>data_in,
+        probe2 =>port_in_00,
+        probe3 =>(others => '1')
+        );
 
 
 --Multiplexer code
@@ -139,7 +155,7 @@ begin
 --port_out_00 description : ADDRESS x "E0"
   U3 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_00 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E0" and write = '1') then
@@ -151,7 +167,7 @@ begin
 --port_out_01 description : ADDRESS x "E1"
   U4 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_01 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E1" and write = '1') then
@@ -163,7 +179,7 @@ begin
 --port_out_02 description : ADDRESS x "E2"
   U5 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_02 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E2" and write = '1') then
@@ -175,7 +191,7 @@ begin
 --port_out_03 description : ADDRESS x "E3"
   U6 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_03 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E3" and write = '1') then
@@ -187,7 +203,7 @@ begin
 --port_out_04 description : ADDRESS x "E4"
   U7 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_04 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E4" and write = '1') then
@@ -199,7 +215,7 @@ begin
 --port_out_05 description : ADDRESS x "E5"
   U8 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_05 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E5" and write = '1') then
@@ -211,7 +227,7 @@ begin
 --port_out_06 description : ADDRESS x "E6"
   U9 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_06 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E6" and write = '1') then
@@ -223,7 +239,7 @@ begin
 --port_out_07 description : ADDRESS x "E7"
   U10 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_07 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E7" and write = '1') then
@@ -235,7 +251,7 @@ begin
 --port_out_08 description : ADDRESS x "E8"
   U11 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_08 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E8" and write = '1') then
@@ -247,7 +263,7 @@ begin
 --port_out_09 description : ADDRESS x "E9"
   U12 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_09 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"E9" and write = '1') then
@@ -259,7 +275,7 @@ begin
 --port_out_0A description : ADDRESS x "EA"
   U13 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_10 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"EA" and write = '1') then
@@ -271,7 +287,7 @@ begin
 --port_out_0B description : ADDRESS x "EB"
   U14 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_11 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"EB" and write = '1') then
@@ -283,7 +299,7 @@ begin
 --port_out_0C description : ADDRESS x "EC"
   U15 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_12 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"EC" and write = '1') then
@@ -295,7 +311,7 @@ begin
 --port_out_0D description : ADDRESS x "ED"
   U16 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_13 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"ED" and write = '1') then
@@ -307,7 +323,7 @@ begin
 --port_out_0E description : ADDRESS x "EE"
   U17 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_14 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"EE" and write = '1') then
@@ -319,7 +335,7 @@ begin
 --port_out_0F description : ADDRESS x "EF"
   U18 : process (clock, reset)
   begin
-    if (reset = '0') then
+    if (reset = '1') then
       port_out_15 <= x"00";
     elsif (clock'event and clock = '1') then
       if (address = x"EF" and write = '1') then
