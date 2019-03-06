@@ -24,27 +24,23 @@ architecture rom_128x8_sync_arch of rom_128x8_sync_core_1 is
   type rom_type is array (0 to 127) of std_logic_vector(7 downto 0);
 
   constant ROM : rom_type := (
-                                0 => LDA_IMM,
-                                1 => x"A0",
-                                2 => STA_DIR,
-                                3 => x"E0",
-                                4 => BRA,
-                                5 => x"00",
-                                
-                                50 => LDA_IMM,
-                                51 => x"01",        -- Start of Illegal Opcode Fault. Pushes A, B, and PC to Stack
-                                52 => STA_DIR,
-                                53 => x"E0",
-                                54 => RTI,
-                                
-                                66 => LDA_DIR,
-                                67 => x"F0",
-                                68 => STA_DIR,
-                                69 => x"E0",
-                                70 => CLI,
-                                71 => RTI,
+    0 => BRA,
+    1 => x"00",
 
-                              others => x"00");
+    50 => LDA_IMM,
+    51 => x"01",  -- Start of Illegal Opcode Fault. Pushes A, B, and PC to Stack
+    52 => STA_DIR,
+    53 => x"E0",
+    54 => RTI,
+
+    66 => LDA_DIR,                      -- UART Interrupt
+    67 => x"F0",
+    68 => STA_DIR,
+    69 => x"E0",
+    70 => CLI,
+    71 => RTI,
+
+    others => x"00");
 --
 begin
 --enables ROM and port_outs

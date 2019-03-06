@@ -10,7 +10,8 @@
                     {
                         "type": "XSDB_V3",
                         "name": "dbg_hub",
-                        "spec": "labtools_xsdbm_v3"
+                        "spec": "labtools_xsdbm_v3",
+                        "clk_input_freq_hz": "100000000"
                     },
                     {
                         "type": "ILA_V3",
@@ -255,36 +256,152 @@
                                 "direction": "IN",
                                 "isVector": true,
                                 "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "uart",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 6,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 1,
+                                "rightIndex": 1,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "<const0>_1",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 7,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 2,
+                                "rightIndex": 2,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "<const0>_2",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 8,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 3,
+                                "rightIndex": 3,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "<const0>_3",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 9,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 4,
+                                "rightIndex": 4,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "<const0>_4",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 10,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 5,
+                                "rightIndex": 5,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "<const0>_5",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 11,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 6,
+                                "rightIndex": 6,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "<const0>_6",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 12,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 7,
                                 "rightIndex": 7,
                                 "portIndex": 1,
                                 "nets": [
                                     {
-                                        "name": "port_out_temp02",
+                                        "name": "<const0>",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 13,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 3,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "interrupt",
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "port_out_temp02[7]"
+                                                "name": "interrupt[3]"
                                             },
                                             {
-                                                "name": "port_out_temp02[6]"
+                                                "name": "interrupt[2]"
                                             },
                                             {
-                                                "name": "port_out_temp02[5]"
+                                                "name": "interrupt[1]"
                                             },
                                             {
-                                                "name": "port_out_temp02[4]"
-                                            },
-                                            {
-                                                "name": "port_out_temp02[3]"
-                                            },
-                                            {
-                                                "name": "port_out_temp02[2]"
-                                            },
-                                            {
-                                                "name": "port_out_temp02[1]"
-                                            },
-                                            {
-                                                "name": "port_out_temp02[0]"
+                                                "name": "interrupt[0]"
                                             }
                                         ]
                                     }
@@ -292,41 +409,29 @@
                             },
                             {
                                 "name": "probe2",
-                                "id": 6,
+                                "id": 14,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
-                                "leftIndex": 0,
+                                "leftIndex": 4,
                                 "rightIndex": 7,
                                 "portIndex": 2,
                                 "nets": [
                                     {
-                                        "name": "port_out_temp03",
+                                        "name": "buff_address",
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "port_out_temp03[7]"
+                                                "name": "buff_address[3]"
                                             },
                                             {
-                                                "name": "port_out_temp03[6]"
+                                                "name": "buff_address[2]"
                                             },
                                             {
-                                                "name": "port_out_temp03[5]"
+                                                "name": "buff_address[1]"
                                             },
                                             {
-                                                "name": "port_out_temp03[4]"
-                                            },
-                                            {
-                                                "name": "port_out_temp03[3]"
-                                            },
-                                            {
-                                                "name": "port_out_temp03[2]"
-                                            },
-                                            {
-                                                "name": "port_out_temp03[1]"
-                                            },
-                                            {
-                                                "name": "port_out_temp03[0]"
+                                                "name": "buff_address[0]"
                                             }
                                         ]
                                     }
@@ -334,7 +439,7 @@
                             },
                             {
                                 "name": "probe3",
-                                "id": 7,
+                                "id": 15,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -376,7 +481,7 @@
                             },
                             {
                                 "name": "probe4",
-                                "id": 8,
+                                "id": 16,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,

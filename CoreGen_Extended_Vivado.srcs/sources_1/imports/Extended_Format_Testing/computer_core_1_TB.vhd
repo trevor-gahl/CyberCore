@@ -60,7 +60,7 @@ architecture computer_TB_arch of computer_core_1_TB is
           port_out_13   : out std_logic_vector (7 downto 0);
           port_out_14   : out std_logic_vector (7 downto 0);
           port_out_15   : out std_logic_vector (7 downto 0);
-          interrupt     : in std_logic_vector (3 downto 0);
+          interrupt     : in  std_logic_vector (3 downto 0);
           interrupt_clr : out std_logic;
           cpu_exception : out std_logic);
   end component;
@@ -101,7 +101,7 @@ architecture computer_TB_arch of computer_core_1_TB is
   signal port_in_13_TB  : std_logic_vector (7 downto 0);
   signal port_in_14_TB  : std_logic_vector (7 downto 0);
   signal port_in_15_TB  : std_logic_vector (7 downto 0);
-  signal interrupt_TB      : std_logic_vector (3 downto 0):="0000";
+  signal interrupt_TB   : std_logic_vector (3 downto 0) := "0000";
   signal interrupt_clr  : std_logic;
   signal cpu_exception  : std_logic;
   signal int_cnt        : std_logic_vector (5 downto 0) := (others => '0');
@@ -173,30 +173,30 @@ begin
 --    end if;
 --    end process;
 
-rx_sig_proc : process (clock_TB)
-begin
-if(rising_edge(clock_TB)) then
-if(rx_sig >= "11111111") then
-  rx_sig <= (others => '0');
-else
-  rx_sig <= rx_sig +1;
-  end if;
-  end if;
-  end process;
-    
-int_proc: process(clock_TB)
-begin
-if(rising_edge(clock_TB)) then
-  if(interrupt_clr = '1') then
-    interrupt_TB <= "0000";
-  else
-   if(int_cnt >= "111111") then
-    interrupt_TB <= "0001";
-    int_cnt <= (others => '0');
-   else
-    int_cnt <= int_cnt + 1;
+  rx_sig_proc : process (clock_TB)
+  begin
+    if(rising_edge(clock_TB)) then
+      if(rx_sig >= "11111111") then
+        rx_sig <= (others => '0');
+      else
+        rx_sig <= rx_sig +1;
+      end if;
     end if;
-   end if;
- end if;
-end process;
+  end process;
+
+  int_proc : process(clock_TB)
+  begin
+    if(rising_edge(clock_TB)) then
+      if(interrupt_clr = '1') then
+        interrupt_TB <= "0000";
+      else
+        if(int_cnt >= "111111") then
+          interrupt_TB <= "0001";
+          int_cnt      <= (others => '0');
+        else
+          int_cnt <= int_cnt + 1;
+        end if;
+      end if;
+    end if;
+  end process;
 end architecture;

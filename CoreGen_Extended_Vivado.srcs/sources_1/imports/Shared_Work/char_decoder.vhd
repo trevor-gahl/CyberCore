@@ -46,7 +46,7 @@ begin
         led_display <= "0110000";       -- E
       when "1111" =>
         led_display <= "0111000";       -- F
-      when others => 
+      when others =>
         led_display <= "0000001";       -- 0
     end case;
   end process;

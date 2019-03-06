@@ -117,7 +117,7 @@ begin
         NZVC(1) <= '0';
       end if;
       -- Carry (C)
-    NZVC(0) <= Sum_uns(8);
+      NZVC(0) <= Sum_uns(8);
     end if;
 
     if (ALU_Sel = deca) then

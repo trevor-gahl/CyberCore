@@ -41,7 +41,7 @@ entity memory_core_1 is
         port_out_13 : out std_logic_vector (7 downto 0);
         port_out_14 : out std_logic_vector (7 downto 0);
         port_out_15 : out std_logic_vector (7 downto 0)
-);
+        );
 end entity;
 
 architecture memory_arch of memory_core_1 is
@@ -70,11 +70,14 @@ architecture memory_arch of memory_core_1 is
 
   component ila_1 is
     port(
-         clk : IN STD_LOGIC;
-        probe0 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-        probe1 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-        probe2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-        probe3 : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
+      clk    : in std_logic;
+      probe0 : in std_logic_vector(7 downto 0);
+      probe1 : in std_logic_vector(7 downto 0);
+      probe2 : in std_logic_vector(7 downto 0);
+      probe3 : in std_logic_vector(7 downto 0)
+--        probe4 : in std_logic_vector(7 downto 0);
+--        probe5 : in std_logic_vector(7 downto 0)
+      );
   end component;
 
   signal rom_data_out   : std_logic_vector(7 downto 0);
@@ -103,12 +106,14 @@ begin
               data_out => stack_data_out);
 
   debug : ila_1 port map(
-        clk => clock,
-        probe0 =>address,
-        probe1 =>data_in,
-        probe2 =>port_in_00,
-        probe3 =>(others => '1')
-        );
+    clk    => clock,
+    probe0 => address,
+    probe1 => data_in,
+    probe2 => port_in_00,
+    probe3 => (others => '1')
+--        probe4 =>stack_data_out,
+--        probe5 => rw_data_out
+    );
 
 
 --Multiplexer code
@@ -128,7 +133,7 @@ begin
     elsif((to_integer(unsigned(address)) >= 200) and
           (to_integer(unsigned(address)) <= 223)) then
       data_out <= stack_data_out;
-      
+
     elsif (address = x"F0") then data_out <= port_in_00;
     elsif (address = x"F1") then data_out <= port_in_01;
     elsif (address = x"F2") then data_out <= port_in_02;

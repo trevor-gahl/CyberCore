@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Mar  2 14:53:58 2019
-| Host         : DESKTOP-07AHEBV running 64-bit major release  (build 9200)
+| Date         : Tue Mar  5 13:36:23 2019
+| Host         : DESKTOP-TN1C6Q5 running 64-bit major release  (build 9200)
 | Command      : report_drc -file top_drc_routed.rpt -pb top_drc_routed.pb -rpx top_drc_routed.rpx
 | Design       : top
 | Device       : xc7a35tcpg236-1
@@ -24,12 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 24
+             Violations found: 30
 +-----------+----------+----------------------------+------------+
 | Rule      | Severity | Description                | Violations |
 +-----------+----------+----------------------------+------------+
 | CHECK-3   | Warning  | Report rule limit reached  | 1          |
-| PDRC-153  | Warning  | Gated clock check          | 2          |
+| PDRC-153  | Warning  | Gated clock check          | 8          |
 | REQP-1840 | Warning  | RAMB18 async control check | 20         |
 | RTSTAT-10 | Warning  | No routable loads          | 1          |
 +-----------+----------+----------------------------+------------+
@@ -43,10 +43,40 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net comp1/CPU1/control_unit1/fault_reg[0]_i_1_n_0 is a gated clock net sourced by a combinational pin comp1/CPU1/control_unit1/fault_reg[0]_i_1/O, cell comp1/CPU1/control_unit1/fault_reg[0]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net buff1_reg[7]_i_1_n_0 is a gated clock net sourced by a combinational pin buff1_reg[7]_i_1/O, cell buff1_reg[7]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
+Gated clock check  
+Net buff2_reg[7]_i_1_n_0 is a gated clock net sourced by a combinational pin buff2_reg[7]_i_1/O, cell buff2_reg[7]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net buff3_reg[7]_i_1_n_0 is a gated clock net sourced by a combinational pin buff3_reg[7]_i_1/O, cell buff3_reg[7]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net buff4_reg[7]_i_1_n_0 is a gated clock net sourced by a combinational pin buff4_reg[7]_i_1/O, cell buff4_reg[7]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net buff5_reg[7]_i_1_n_0 is a gated clock net sourced by a combinational pin buff5_reg[7]_i_1/O, cell buff5_reg[7]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net buff6_reg[7]_i_1_n_0 is a gated clock net sourced by a combinational pin buff6_reg[7]_i_1/O, cell buff6_reg[7]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net comp1/CPU1/control_unit1/fault_reg[0]_i_1_n_0 is a gated clock net sourced by a combinational pin comp1/CPU1/control_unit1/fault_reg[0]_i_1/O, cell comp1/CPU1/control_unit1/fault_reg[0]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
 Gated clock check  
 Net comp1/CPU1/control_unit1/interrupt_clr_reg_i_1_n_0 is a gated clock net sourced by a combinational pin comp1/CPU1/control_unit1/interrupt_clr_reg_i_1/O, cell comp1/CPU1/control_unit1/interrupt_clr_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
@@ -128,32 +158,32 @@ Related violations: <none>
 
 REQP-1840#16 Warning
 RAMB18 async control check  
-The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/data_path1/MAR_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#17 Warning
 RAMB18 async control check  
-The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/data_path1/MAR_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#18 Warning
 RAMB18 async control check  
-The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/data_path1/MAR_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#19 Warning
 RAMB18 async control check  
-The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/data_path1/MAR_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#20 Warning
 RAMB18 async control check  
-The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/data_path1/MAR_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-351 net(s) have no routable loads. The problem bus(es) and/or net(s) are comp1/CPU1/data_path1/ALU0/ALU_Result0_inferred__3/i__carry__0_n_1, comp1/CPU1/data_path1/ALU0/ALU_Result0_inferred__3/i__carry__0_n_2, comp1/CPU1/data_path1/ALU0/ALU_Result0_inferred__3/i__carry__0_n_3, comp1/CPU1/data_path1/ALU0/ALU_Result0_inferred__3/i__carry_n_1, comp1/CPU1/data_path1/ALU0/ALU_Result0_inferred__3/i__carry_n_2, comp1/CPU1/data_path1/ALU0/ALU_Result0_inferred__3/i__carry_n_3, comp1/CPU1/data_path1/ALU0/A_reg[3]_i_6_n_1, comp1/CPU1/data_path1/ALU0/A_reg[3]_i_6_n_2, comp1/CPU1/data_path1/ALU0/A_reg[3]_i_6_n_3, debug/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_36, debug/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_37, debug/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_38, debug/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_44, debug/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_45, debug/U0/ila_core_inst/ila_trace_memory_inst/SUBCORE_RAM_BLK_MEM_1.trace_block_memory/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_n_52 (the first 15 of 258 listed).
+23 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_capture[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_drck[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_runtest[0], dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/ram_empty_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/rd_rst_reg[0], dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/s_bscan_tms, debug/U0/trig_in_reg, comp1/MEMORY1/debug/U0/trig_in_reg (the first 15 of 21 listed).
 Related violations: <none>
 
 

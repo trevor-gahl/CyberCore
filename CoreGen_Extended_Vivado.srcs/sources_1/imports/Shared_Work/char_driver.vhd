@@ -8,7 +8,7 @@ entity char_driver is
     clk         : in  std_logic;
     reset       : in  std_logic;
     bin_in      : in  std_logic_vector(15 downto 0);
-    anode_sel   : out  std_logic_vector(3 downto 0);
+    anode_sel   : out std_logic_vector(3 downto 0);
     led_display : out std_logic_vector(6 downto 0)
     );
 end char_driver;
@@ -51,22 +51,22 @@ begin
 --char_3 <= "0011";
 --char_4 <= "0100";
 
-  char_1_decoder: char_decoder  port map
-    (char_in => char_1,
+  char_1_decoder : char_decoder port map
+    (char_in     => char_1,
      led_display => disp_1);
-  
-  char_2_decoder: char_decoder  port map
-    (char_in => char_2,
+
+  char_2_decoder : char_decoder port map
+    (char_in     => char_2,
      led_display => disp_2);
-  
-  char_3_decoder: char_decoder  port map
-    (char_in => char_3,
+
+  char_3_decoder : char_decoder port map
+    (char_in     => char_3,
      led_display => disp_3);
-  
-  char_4_decoder: char_decoder  port map
-    (char_in => char_4,
+
+  char_4_decoder : char_decoder port map
+    (char_in     => char_4,
      led_display => disp_4);
-  
+
   refresh_rate : process(clk, reset)
   begin
     if(reset = '1') then
@@ -77,20 +77,20 @@ begin
   end process;
   activating_counter <= refresh_counter(19 downto 18);
 
-  display: process(activating_counter)
+  display : process(activating_counter)
   begin
     case activating_counter is
       when "00" =>
-        anode_sel <= "0111";
+        anode_sel   <= "0111";
         led_display <= disp_1;
       when "01" =>
-        anode_sel <= "1011";
+        anode_sel   <= "1011";
         led_display <= disp_2;
       when "10" =>
-        anode_sel <= "1101";
+        anode_sel   <= "1101";
         led_display <= disp_3;
       when "11" =>
-        anode_sel <= "1110";
+        anode_sel   <= "1110";
         led_display <= disp_4;
     end case;
   end process;
