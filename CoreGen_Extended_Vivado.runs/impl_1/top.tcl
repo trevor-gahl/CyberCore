@@ -60,7 +60,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -71,16 +70,16 @@ set rc [catch {
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.cache/wt [current_project]
-  set_property parent.project_path C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.xpr [current_project]
-  set_property ip_output_repo C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.xpr [current_project]
+  set_property ip_output_repo C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/top.dcp
-  read_ip -quiet C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_ip -quiet C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/ip/ila_0/ila_0.xci
-  read_ip -quiet C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/ip/ila_1/ila_1.xci
-  read_xdc C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
+  add_files -quiet C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/top.dcp
+  read_ip -quiet C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/ip/ila_0/ila_0.xci
+  read_ip -quiet C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/ip/ila_1/ila_1.xci
+  read_xdc C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/constrs_1/imports/constraints/Basys3_Master.xdc
   link_design -top top -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]

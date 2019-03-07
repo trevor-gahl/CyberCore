@@ -20,6 +20,10 @@ end entity;
 
 architecture top_arch of top is
 
+type state_type is(state_1, state_2, state_3, state_4, state_5, state_6, state_7);
+
+signal current_state, next_state : state_type;
+
   component char_driver is
     port (
       clk         : in  std_logic;
@@ -251,34 +255,34 @@ begin
 -- end if;
 --end process;
 
-  int_proc : process(CLK)
-  begin
-    if(rising_edge(CLK)) then
-      if(interrupt_clr = '1') then
-        interrupt <= "0000";
-      else
-        if(buff_address = "0110") then
-          interrupt <= "0001";
---          buff_address <="0000";
-        end if;
-      end if;
-    end if;
-  end process;
-
-  uart_interrupt : process(CLK, rx_dv_sig)
-  begin
+--  int_proc : process(CLK)
+--  begin
 --    if(rising_edge(CLK)) then
-      if(rising_edge(rx_dv_sig)) then
-        rx_read <= rx_byte_val;
---        uart    <= '1';
-        if(buff_address >= "0110") then
-          buff_address <= "0000";
-        else
-          buff_address <= buff_address+1;
-        end if;
-      end if;
+--      if(interrupt_clr = '1') then
+--        interrupt <= "0000";
+--      else
+--        if(buff_address = "0110") then
+--          interrupt <= "0001";
+----          buff_address <="0000";
+--        end if;
+--      end if;
 --    end if;
-  end process;
+--  end process;
+
+--  uart_interrupt : process(CLK, rx_dv_sig)
+--  begin
+----    if(rising_edge(CLK)) then
+--      if(rising_edge(rx_dv_sig)) then
+--        rx_read <= rx_byte_val;
+----        uart    <= '1';
+--        if(buff_address >= "0110") then
+--          buff_address <= "0000";
+--        else
+--          buff_address <= buff_address+1;
+--        end if;
+--      end if;
+----    end if;
+--  end process;
 
 --  uart_interrupt : process(CLK, rx_byte_val)
 --  begin
@@ -297,25 +301,26 @@ begin
 --    end if;
 --  end process;
 
-  buff : process(buff_address)
-  begin
-    case (buff_address) is
-      when "0000" =>
-        buff1 <= rx_read;
-      when "0001" =>
-        buff2 <= rx_read;
-      when "0010" =>
-        buff3 <= rx_read;
-      when "0011" =>
-        buff4 <= rx_read;
-      when "0100" =>
-        buff5 <= rx_read;
-      when "0101" =>
-        buff6 <= rx_read;
-      when others =>
-        rx_read <= rx_read;
-    end case;
-  end process;
+--  buff : process(buff_address)
+--  begin
+--    case (buff_address) is
+--      when "0000" =>
+--        buff1 <= rx_read;
+--      when "0001" =>
+--        buff2 <= rx_read;
+--      when "0010" =>
+--        buff3 <= rx_read;
+--      when "0011" =>
+--        buff4 <= rx_read;
+--      when "0100" =>
+--        buff5 <= rx_read;
+--      when "0101" =>
+--        buff6 <= rx_read;
+--      when others =>
+--        rx_read <= rx_read;
+--    end case;
+--  end process;
+
 --  check_result : process(clock_slow, voter_result)
 --  begin
 --    if(rising_edge(clock_slow)) then
@@ -331,6 +336,79 @@ begin
 --    end if;
 --  end process;
 
+
+next_state_logic : process(CLK)
+begin
+  if(rising_edge(CLK)) then
+    current_state <= next_state;
+  end if;
+end process;
+
+state_logic : process(rx_dv_sig, CLK, interrupt_clr)
+begin
+if(current_state = state_7 and interrupt_clr = '1') then
+        next_state <= state_1;
+  else
+  if(rising_edge(rx_dv_sig)) then
+  
+        case(current_state) is
+      when state_1 =>
+        rx_read <= rx_byte_val;
+        next_state <= state_2;
+      when state_2 =>
+        rx_read <= rx_byte_val;
+        next_state <= state_3;
+      when state_3 =>
+        rx_read <= rx_byte_val;
+        next_state <= state_4;
+      when state_4 =>
+        rx_read <= rx_byte_val;
+        next_state <= state_5;
+      when state_5 =>
+        rx_read <= rx_byte_val;
+        next_state <= state_6;
+      when state_6 =>
+        rx_read <= rx_byte_val;
+        next_state <= state_7;
+      when others =>
+        next_state <= current_state;
+      end case;
+      end if;
+    end if;
+  end process;
+  
+state_output : process(current_state)
+begin
+  case(current_state) is
+    when state_1 =>
+      buff1 <= rx_read;
+      buff_address <= "0000";
+      interrupt <= "0000";
+    when state_2 =>
+      buff2 <= rx_read;
+      buff_address <= "0001";
+      interrupt <= "0000";
+    when state_3 =>
+      buff3 <= rx_read;
+      buff_address <= "0010";
+      interrupt <= "0000";
+    when state_4 =>
+      buff4 <= rx_read;
+      buff_address <= "0011";
+      interrupt <= "0000";
+    when state_5 => 
+      buff5 <= rx_read;
+      buff_address <= "0100";
+      interrupt <= "0000";
+    when state_6 =>
+      buff6 <= x"E0";
+      buff_address <= "0101";
+      interrupt <= "0000";
+    when state_7 => 
+      buff_address <= "0101";
+      interrupt <= "0001";
+    end case;
+  end process;
 
 
   display_out : char_driver port map

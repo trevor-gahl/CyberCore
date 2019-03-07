@@ -277,7 +277,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>_1",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -293,7 +294,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>_2",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -309,7 +311,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>_3",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -325,7 +328,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>_4",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -341,7 +345,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>_5",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -357,7 +362,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>_6",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -373,7 +379,8 @@
                                 "nets": [
                                     {
                                         "name": "<const0>",
-                                        "isBus": false
+                                        "isBus": false,
+                                        "parentNetId": 41
                                     }
                                 ]
                             },
@@ -425,7 +432,8 @@
                                                 "name": "buff_address[3]"
                                             },
                                             {
-                                                "name": "buff_address[2]"
+                                                "name": "buff_address[2]",
+                                                "parentNetId": 47
                                             },
                                             {
                                                 "name": "buff_address[1]"
@@ -518,6 +526,87 @@
                                                 "name": "rx_byte_val[0]"
                                             }
                                         ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "parent_nets": [
+                    {
+                        "id": 41,
+                        "name": "<const0>",
+                        "const_load": "GND",
+                        "state_reg": [
+                            {
+                                "name": "FSM_sequential_current_state_reg[0]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "110"
+                                    },
+                                    {
+                                        "name": "state_1",
+                                        "val": "000"
+                                    },
+                                    {
+                                        "name": "state_2",
+                                        "val": "001"
+                                    },
+                                    {
+                                        "name": "state_3",
+                                        "val": "010"
+                                    },
+                                    {
+                                        "name": "state_4",
+                                        "val": "011"
+                                    },
+                                    {
+                                        "name": "state_5",
+                                        "val": "100"
+                                    },
+                                    {
+                                        "name": "state_6",
+                                        "val": "101"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 47,
+                        "name": "buff_address[2]",
+                        "state_reg": [
+                            {
+                                "name": "FSM_sequential_current_state_reg[2]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "110"
+                                    },
+                                    {
+                                        "name": "state_1",
+                                        "val": "000"
+                                    },
+                                    {
+                                        "name": "state_2",
+                                        "val": "001"
+                                    },
+                                    {
+                                        "name": "state_3",
+                                        "val": "010"
+                                    },
+                                    {
+                                        "name": "state_4",
+                                        "val": "011"
+                                    },
+                                    {
+                                        "name": "state_5",
+                                        "val": "100"
+                                    },
+                                    {
+                                        "name": "state_6",
+                                        "val": "101"
                                     }
                                 ]
                             }
