@@ -20,7 +20,7 @@ end entity;
 
 architecture top_arch of top is
 
-type state_type is(state_1, state_2, state_3, state_4, state_5, state_6, state_7);
+type state_type is(interrupt_state, interrupt_idle);
 
 signal current_state, next_state : state_type;
 
@@ -242,14 +242,14 @@ begin
     probe13 => exception_flag_1
     );
 
-test : process(buff_ready)
-begin
-if(interrupt_clr = '1') then
-   interrupt <= "0000";
-elsif(rising_edge(buff_ready)) then
-   interrupt <= "0001";
- end if;
- end process;
+--test : process(buff_ready)
+--begin
+--if(interrupt_clr = '1') then
+--   interrupt <= "0000";
+--elsif(rising_edge(buff_ready)) then
+--   interrupt <= "0001";
+-- end if;
+-- end process;
 
 --int_proc: process(CLK)
 --begin
@@ -346,13 +346,60 @@ elsif(rising_edge(buff_ready)) then
 --  end process;
 
 
---next_state_logic : process(CLK)
---begin
---  if(rising_edge(CLK)) then
---    current_state <= next_state;
+next_state_logic : process(CLK)
+begin
+  if(rising_edge(CLK)) then
+    current_state <= next_state;
+  end if;
+end process;
+
+state_logic : process (CLK, interrupt_clr,buff_ready)
+begin
+
+  if(current_state = interrupt_state and interrupt_clr ='1') then
+    next_state <= interrupt_idle;
+  elsif(current_state = interrupt_idle) then
+    if(rising_edge(buff_ready)) then 
+      next_state <= interrupt_state;
+    end if;
+  else
+   next_state <= current_state;
+  end if;
+end process;
+
+--if(rising_edge(CLK)) then
+--  case(current_state) is
+--    when interrupt_state =>
+--      if(interrupt_clr = '1') then
+--        next_state <= interrupt_idle;
+--      elsif(interrupt_clr = '0') then
+--        next_state <= interrupt_state;
+--      end if;
+--    when interrupt_idle =>
+--      if(buff_ready = '1') then
+--        next_state <= interrupt_state;
+--      elsif(buff_ready = '0') then
+--        next_state <= interrupt_idle;
+--      end if;
+--    end case;
 --  end if;
 --end process;
 
+state_output : process(current_state)
+begin
+  case(current_state) is
+    when interrupt_idle =>
+      interrupt <= "0000";
+    when interrupt_state =>
+      interrupt <= "0001";
+  end case;
+end process;
+        
+         
+--if(current_state = interrupt_state and interrupt_clr = '1') then
+--  next_state <= interrupt_idle;
+--elsif(rising_edge
+  
 --state_logic : process(rx_dv_sig, CLK, interrupt_clr)
 --begin
 --if(current_state = state_7 and interrupt_clr = '1') then

@@ -11,13 +11,13 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="1024001fs"></ZoomEndTime>
-      <Cursor1Time time="968000fs"></Cursor1Time>
+      <Cursor1Time time="567000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="312"></NameColumnWidth>
-      <ValueColumnWidth column_width="177"></ValueColumnWidth>
+      <ValueColumnWidth column_width="173"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="10" />
    <wave_markers>
    </wave_markers>
    <wvobject fp_name="comp1/CPU1/control_unit1/current_state" type="array">
@@ -76,13 +76,6 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="comp1/CPU1/control_unit1/interrupt_debug" type="array">
-      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/interrupt_debug[3:0]</obj_property>
-      <obj_property name="ObjectShortName">interrupt_debug[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-   </wvobject>
    <wvobject fp_name="comp1/CPU1/data_path1/BUS1" type="array">
       <obj_property name="ElementShortName">comp1/CPU1/data_path1/BUS1[7:0]</obj_property>
       <obj_property name="ObjectShortName">BUS1[7:0]</obj_property>
@@ -90,10 +83,10 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="comp1/CPU1/control_unit1/internal_interrupt" type="logic">
-      <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/internal_interrupt</obj_property>
-      <obj_property name="ObjectShortName">internal_interrupt</obj_property>
+   <wvobject fp_name="comp1/CPU1/control_unit1/interrupt_debug" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/interrupt_debug[3:0]</obj_property>
+      <obj_property name="ObjectShortName">interrupt_debug[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
