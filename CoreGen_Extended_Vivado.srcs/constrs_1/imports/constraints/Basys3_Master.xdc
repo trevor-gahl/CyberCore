@@ -10,12 +10,12 @@ set_property IOSTANDARD LVCMOS33 [get_ports CLK]
 create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports CLK]
 
 # Reset
-#set_property PACKAGE_PIN R2 [get_ports RESET]     
+#set_property PACKAGE_PIN R2 [get_ports RESET]
 #set_property IOSTANDARD LVCMOS33 [get_ports RESET]
 
 # Switches
-set_property PACKAGE_PIN V17 [get_ports {RESET}]
-set_property IOSTANDARD LVCMOS33 [get_ports {RESET}]
+set_property PACKAGE_PIN V17 [get_ports RESET]
+set_property IOSTANDARD LVCMOS33 [get_ports RESET]
 set_property PACKAGE_PIN V16 [get_ports {SW[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {SW[0]}]
 set_property PACKAGE_PIN W16 [get_ports {SW[1]}]
@@ -82,28 +82,28 @@ set_property IOSTANDARD LVCMOS33 [get_ports {LED[7]}]
 #set_property PACKAGE_PIN L1 [get_ports {LED[15]}]
 #set_property IOSTANDARD LVCMOS33 [get_ports {LED[15]}]
 
-        set_property PACKAGE_PIN W7 [get_ports {led_display[6]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[6]}]
-        set_property PACKAGE_PIN W6 [get_ports {led_display[5]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[5]}]
-        set_property PACKAGE_PIN U8 [get_ports {led_display[4]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[4]}]
-        set_property PACKAGE_PIN V8 [get_ports {led_display[3]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[3]}]
-        set_property PACKAGE_PIN U5 [get_ports {led_display[2]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[2]}]
-        set_property PACKAGE_PIN V5 [get_ports {led_display[1]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[1]}]
-        set_property PACKAGE_PIN U7 [get_ports {led_display[0]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {led_display[0]}]
-        set_property PACKAGE_PIN U2 [get_ports {anode_sel[0]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[0]}]
-        set_property PACKAGE_PIN U4 [get_ports {anode_sel[1]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[1]}]
-        set_property PACKAGE_PIN V4 [get_ports {anode_sel[2]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[2]}]
-        set_property PACKAGE_PIN W4 [get_ports {anode_sel[3]}]                    
-            set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[3]}]
+set_property PACKAGE_PIN W7 [get_ports {led_display[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[6]}]
+set_property PACKAGE_PIN W6 [get_ports {led_display[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[5]}]
+set_property PACKAGE_PIN U8 [get_ports {led_display[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[4]}]
+set_property PACKAGE_PIN V8 [get_ports {led_display[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[3]}]
+set_property PACKAGE_PIN U5 [get_ports {led_display[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[2]}]
+set_property PACKAGE_PIN V5 [get_ports {led_display[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[1]}]
+set_property PACKAGE_PIN U7 [get_ports {led_display[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led_display[0]}]
+set_property PACKAGE_PIN U2 [get_ports {anode_sel[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[0]}]
+set_property PACKAGE_PIN U4 [get_ports {anode_sel[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[1]}]
+set_property PACKAGE_PIN V4 [get_ports {anode_sel[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[2]}]
+set_property PACKAGE_PIN W4 [get_ports {anode_sel[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {anode_sel[3]}]
 ##7 segment display
 ##Bank = 34, Pin name = ,						Sch name = CA
 #set_property PACKAGE_PIN W7 [get_ports {led_display[0]}]
@@ -383,3 +383,63 @@ set_property CFGBVS VCCO [current_design]
 
 
 
+
+
+
+
+
+
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 4 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER true [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL true [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list CLK_IBUF]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 4 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {comp1/CPU1/control_unit1/interrupt_debug[0]} {comp1/CPU1/control_unit1/interrupt_debug[1]} {comp1/CPU1/control_unit1/interrupt_debug[2]} {comp1/CPU1/control_unit1/interrupt_debug[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 7 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {comp1/CPU1/control_unit1/current_state[0]} {comp1/CPU1/control_unit1/current_state[1]} {comp1/CPU1/control_unit1/current_state[2]} {comp1/CPU1/control_unit1/current_state[3]} {comp1/CPU1/control_unit1/current_state[4]} {comp1/CPU1/control_unit1/current_state[5]} {comp1/CPU1/control_unit1/current_state[6]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 4 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {comp1/CPU1/control_unit1/fault[0]} {comp1/CPU1/control_unit1/fault[1]} {comp1/CPU1/control_unit1/fault[2]} {comp1/CPU1/control_unit1/fault[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {comp1/CPU1/data_path1/BUS2[0]} {comp1/CPU1/data_path1/BUS2[1]} {comp1/CPU1/data_path1/BUS2[2]} {comp1/CPU1/data_path1/BUS2[3]} {comp1/CPU1/data_path1/BUS2[4]} {comp1/CPU1/data_path1/BUS2[5]} {comp1/CPU1/data_path1/BUS2[6]} {comp1/CPU1/data_path1/BUS2[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {comp1/CPU1/data_path1/SP[0]} {comp1/CPU1/data_path1/SP[1]} {comp1/CPU1/data_path1/SP[2]} {comp1/CPU1/data_path1/SP[3]} {comp1/CPU1/data_path1/SP[4]} {comp1/CPU1/data_path1/SP[5]} {comp1/CPU1/data_path1/SP[6]} {comp1/CPU1/data_path1/SP[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {comp1/CPU1/data_path1/A[0]} {comp1/CPU1/data_path1/A[1]} {comp1/CPU1/data_path1/A[2]} {comp1/CPU1/data_path1/A[3]} {comp1/CPU1/data_path1/A[4]} {comp1/CPU1/data_path1/A[5]} {comp1/CPU1/data_path1/A[6]} {comp1/CPU1/data_path1/A[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 8 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {comp1/CPU1/data_path1/IR_Sig[0]} {comp1/CPU1/data_path1/IR_Sig[1]} {comp1/CPU1/data_path1/IR_Sig[2]} {comp1/CPU1/data_path1/IR_Sig[3]} {comp1/CPU1/data_path1/IR_Sig[4]} {comp1/CPU1/data_path1/IR_Sig[5]} {comp1/CPU1/data_path1/IR_Sig[6]} {comp1/CPU1/data_path1/IR_Sig[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 8 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {comp1/CPU1/data_path1/B[0]} {comp1/CPU1/data_path1/B[1]} {comp1/CPU1/data_path1/B[2]} {comp1/CPU1/data_path1/B[3]} {comp1/CPU1/data_path1/B[4]} {comp1/CPU1/data_path1/B[5]} {comp1/CPU1/data_path1/B[6]} {comp1/CPU1/data_path1/B[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 8 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {comp1/CPU1/data_path1/PC[0]} {comp1/CPU1/data_path1/PC[1]} {comp1/CPU1/data_path1/PC[2]} {comp1/CPU1/data_path1/PC[3]} {comp1/CPU1/data_path1/PC[4]} {comp1/CPU1/data_path1/PC[5]} {comp1/CPU1/data_path1/PC[6]} {comp1/CPU1/data_path1/PC[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 8 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {comp1/CPU1/data_path1/BUS1[0]} {comp1/CPU1/data_path1/BUS1[1]} {comp1/CPU1/data_path1/BUS1[2]} {comp1/CPU1/data_path1/BUS1[3]} {comp1/CPU1/data_path1/BUS1[4]} {comp1/CPU1/data_path1/BUS1[5]} {comp1/CPU1/data_path1/BUS1[6]} {comp1/CPU1/data_path1/BUS1[7]}]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets CLK_IBUF]

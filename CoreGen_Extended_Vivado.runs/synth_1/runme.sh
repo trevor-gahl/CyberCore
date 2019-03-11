@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Pyrospider/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1'
+HD_PWD='C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

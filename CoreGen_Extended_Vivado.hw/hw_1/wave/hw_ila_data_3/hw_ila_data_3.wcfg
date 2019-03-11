@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.hw/hw_1/wave/hw_ila_data_3/hw_ila_data_3.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1024001fs"></ZoomEndTime>
+      <Cursor1Time time="968000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="312"></NameColumnWidth>
+      <ValueColumnWidth column_width="177"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="comp1/CPU1/control_unit1/current_state" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/current_state[6:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[6:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/PC" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/PC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/IR_Sig" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/IR_Sig[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IR_Sig[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/SP" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/SP[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SP[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/A" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/B" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/BUS2" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/BUS2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">BUS2[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/control_unit1/fault" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/fault[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fault[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/control_unit1/interrupt_debug" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/interrupt_debug[3:0]</obj_property>
+      <obj_property name="ObjectShortName">interrupt_debug[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/data_path1/BUS1" type="array">
+      <obj_property name="ElementShortName">comp1/CPU1/data_path1/BUS1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">BUS1[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="comp1/CPU1/control_unit1/internal_interrupt" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/internal_interrupt</obj_property>
+      <obj_property name="ObjectShortName">internal_interrupt</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+</wave_config>

@@ -55,6 +55,16 @@ architecture data_path_arch of data_path_core_1 is
   signal Fault_Vector     : std_logic_vector(7 downto 0);
   signal Interrupt_Vector : std_logic_vector(7 downto 0);
 
+  attribute mark_debug : string;
+  attribute keep : string;
+  attribute mark_debug of PC : signal is "true";
+  attribute mark_debug of A : signal is "true";
+  attribute mark_debug of B : signal is "true";
+  attribute mark_debug of SP : signal is "true";
+  attribute mark_debug of BUS1 : signal is "true";
+  attribute mark_debug of BUS2 : signal is "true";
+  attribute mark_debug of IR_Sig : signal is "true";
+
 begin
 
   ALU0 : alu_core_1 port map (
@@ -74,11 +84,12 @@ begin
 
   INTERRUPT_VECTOR0 : process (interrupt)
   begin
-    case (interrupt) is
-      when "0001" => Interrupt_Vector <= x"F8";
-      when "0010" => Interrupt_Vector <= x"52";
-      when others => Interrupt_Vector <= x"00";
-    end case;
+--    case (interrupt) is
+--      when "0001" => Interrupt_Vector <= x"78";
+--      when "0010" => Interrupt_Vector <= x"52";
+--      when others => 
+      Interrupt_Vector <= x"78";
+--    end case;
   end process;
 
   MUX_BUS1 : process (Bus1_Sel, PC, A, B)
@@ -114,9 +125,11 @@ begin
   begin
     if (Reset = '1') then
       IR <= x"00";
+      IR_Sig <= x"00";
     elsif (clock'event and clock = '1') then
       if (IR_Load = '1') then
         IR <= Bus2;
+        IR_Sig <= Bus2;
       end if;
     end if;
   end process;

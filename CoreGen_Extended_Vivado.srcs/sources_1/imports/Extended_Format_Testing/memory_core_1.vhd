@@ -125,31 +125,31 @@ begin
 
   begin
     if ((to_integer(unsigned(address)) >= 0) and
-        (to_integer(unsigned(address)) <= 127)) then
+        (to_integer(unsigned(address)) <= 95)) then
       data_out <= rom_data_out;
     elsif((to_integer(unsigned(address)) >= 128) and
           (to_integer(unsigned(address)) <= 199)) then
       data_out <= rw_data_out;
     elsif((to_integer(unsigned(address)) >= 200) and
-          (to_integer(unsigned(address)) <= 223)) then
+          (to_integer(unsigned(address)) <= 255)) then
       data_out <= stack_data_out;
 
-    elsif (address = x"F0") then data_out <= port_in_00;
-    elsif (address = x"F1") then data_out <= port_in_01;
-    elsif (address = x"F2") then data_out <= port_in_02;
-    elsif (address = x"F3") then data_out <= port_in_03;
-    elsif (address = x"F4") then data_out <= port_in_04;
-    elsif (address = x"F5") then data_out <= port_in_05;
-    elsif (address = x"F6") then data_out <= port_in_06;
-    elsif (address = x"F7") then data_out <= port_in_07;
-    elsif (address = x"F8") then data_out <= port_in_08;
-    elsif (address = x"F9") then data_out <= port_in_09;
-    elsif (address = x"FA") then data_out <= port_in_10;
-    elsif (address = x"FB") then data_out <= port_in_11;
-    elsif (address = x"FC") then data_out <= port_in_12;
-    elsif (address = x"FD") then data_out <= port_in_13;
-    elsif (address = x"FE") then data_out <= port_in_14;
-    elsif (address = x"FF") then data_out <= port_in_15;
+    elsif (address = x"70") then data_out <= port_in_00;
+    elsif (address = x"71") then data_out <= port_in_01;
+    elsif (address = x"72") then data_out <= port_in_02;
+    elsif (address = x"73") then data_out <= port_in_03;
+    elsif (address = x"74") then data_out <= port_in_04;
+    elsif (address = x"75") then data_out <= port_in_05;
+    elsif (address = x"76") then data_out <= port_in_06;
+    elsif (address = x"77") then data_out <= port_in_07;
+    elsif (address = x"78") then data_out <= port_in_08;
+    elsif (address = x"79") then data_out <= port_in_09;
+    elsif (address = x"7A") then data_out <= port_in_10;
+    elsif (address = x"7B") then data_out <= port_in_11;
+    elsif (address = x"7C") then data_out <= port_in_12;
+    elsif (address = x"7D") then data_out <= port_in_13;
+    elsif (address = x"7E") then data_out <= port_in_14;
+    elsif (address = x"7F") then data_out <= port_in_15;
 
     else data_out <= x"00";
 
@@ -163,7 +163,7 @@ begin
     if (reset = '1') then
       port_out_00 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E0" and write = '1') then
+      if (address = x"60" and write = '1') then
         port_out_00 <= data_in;
       end if;
     end if;
@@ -175,7 +175,7 @@ begin
     if (reset = '1') then
       port_out_01 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E1" and write = '1') then
+      if (address = x"61" and write = '1') then
         port_out_01 <= data_in;
       end if;
     end if;
@@ -187,7 +187,7 @@ begin
     if (reset = '1') then
       port_out_02 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E2" and write = '1') then
+      if (address = x"62" and write = '1') then
         port_out_02 <= data_in;
       end if;
     end if;
@@ -199,7 +199,7 @@ begin
     if (reset = '1') then
       port_out_03 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E3" and write = '1') then
+      if (address = x"63" and write = '1') then
         port_out_03 <= data_in;
       end if;
     end if;
@@ -211,7 +211,7 @@ begin
     if (reset = '1') then
       port_out_04 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E4" and write = '1') then
+      if (address = x"64" and write = '1') then
         port_out_04 <= data_in;
       end if;
     end if;
@@ -223,7 +223,7 @@ begin
     if (reset = '1') then
       port_out_05 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E5" and write = '1') then
+      if (address = x"65" and write = '1') then
         port_out_05 <= data_in;
       end if;
     end if;
@@ -235,7 +235,7 @@ begin
     if (reset = '1') then
       port_out_06 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E6" and write = '1') then
+      if (address = x"66" and write = '1') then
         port_out_06 <= data_in;
       end if;
     end if;
@@ -247,7 +247,7 @@ begin
     if (reset = '1') then
       port_out_07 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E7" and write = '1') then
+      if (address = x"67" and write = '1') then
         port_out_07 <= data_in;
       end if;
     end if;
@@ -259,7 +259,7 @@ begin
     if (reset = '1') then
       port_out_08 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E8" and write = '1') then
+      if (address = x"68" and write = '1') then
         port_out_08 <= data_in;
       end if;
     end if;
@@ -271,7 +271,7 @@ begin
     if (reset = '1') then
       port_out_09 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"E9" and write = '1') then
+      if (address = x"69" and write = '1') then
         port_out_09 <= data_in;
       end if;
     end if;
@@ -283,7 +283,7 @@ begin
     if (reset = '1') then
       port_out_10 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"EA" and write = '1') then
+      if (address = x"6A" and write = '1') then
         port_out_10 <= data_in;
       end if;
     end if;
@@ -295,7 +295,7 @@ begin
     if (reset = '1') then
       port_out_11 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"EB" and write = '1') then
+      if (address = x"6B" and write = '1') then
         port_out_11 <= data_in;
       end if;
     end if;
@@ -307,7 +307,7 @@ begin
     if (reset = '1') then
       port_out_12 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"EC" and write = '1') then
+      if (address = x"6C" and write = '1') then
         port_out_12 <= data_in;
       end if;
     end if;
@@ -319,7 +319,7 @@ begin
     if (reset = '1') then
       port_out_13 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"ED" and write = '1') then
+      if (address = x"6D" and write = '1') then
         port_out_13 <= data_in;
       end if;
     end if;
@@ -331,7 +331,7 @@ begin
     if (reset = '1') then
       port_out_14 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"EE" and write = '1') then
+      if (address = x"6E" and write = '1') then
         port_out_14 <= data_in;
       end if;
     end if;
@@ -343,7 +343,7 @@ begin
     if (reset = '1') then
       port_out_15 <= x"00";
     elsif (clock'event and clock = '1') then
-      if (address = x"EF" and write = '1') then
+      if (address = x"6F" and write = '1') then
         port_out_15 <= data_in;
       end if;
     end if;

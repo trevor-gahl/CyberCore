@@ -34,6 +34,13 @@ end entity;
 
 architecture control_unit_arch of control_unit_core_1 is
 
+component ila_3 is
+ port (
+ clk : in std_logic;
+ probe0 : in std_logic_vector(6 downto 0)
+ );
+ end component;
+
 -- Type declration
   type state_type is(
     -- Fetches opcodes from memory
@@ -109,6 +116,7 @@ architecture control_unit_arch of control_unit_core_1 is
 
     -- CLI (Clear interrupt)
     S_CLI_4,
+    S_CLI_5,
 
     -- RTI (A, B, PC) (Return Interrupt)
     S_RTI_4, S_RTI_5, S_RTI_6, S_RTI_7,      -- PLL_A
@@ -137,17 +145,33 @@ architecture control_unit_arch of control_unit_core_1 is
     S_LD_ILL_OP_VEC_4,
 
     -- Load Interrupt Vector
-    S_LD_INT_VEC_4
+    S_LD_INT_VEC_4, S_LD_INT_VEC_5,
+    
+    S_LOGIC_TEST
     );
 
   signal current_state, next_state : state_type;
+  signal interrupt_debug : std_logic_vector(3 downto 0);
+  signal internal_interrupt  : std_logic := '0';
+  signal interrupt_clr_debug : std_logic;
   signal fault                     : std_logic_vector(3 downto 0);
+  
+  attribute mark_debug : string;
+  attribute keep : string;
+  attribute mark_debug of current_state : signal is "true";
+  attribute keep of current_state : signal is "true";
+  attribute mark_debug of fault : signal is "true";
+  attribute keep of fault : signal is "true";
+  attribute mark_debug of interrupt_debug : signal is "true";
+  attribute keep of interrupt_debug : signal is "true";
+
 
 -- start architecture
 begin
 
+--  interrupt_clr <= interrupt_clr_signal;
   fault_trigger <= fault;
-
+  interrupt_debug <= interrupt;
   -- State memory for the next state and the instructions wanted (LDA, BRA etc)
   STATE_MEMORY : process(clock, reset)
   begin
@@ -168,6 +192,9 @@ begin
     -----------
 
     if(current_state = S_FETCH_0) then
+--      if (internal_interrupt = '1') then
+--        next_state <= S_FETCH_1;
+--      els
       if (fault > "0000") then          -- Check for internal faults
         next_state <= S_STI_4;
       elsif (interrupt > "0000") then   -- Check for external interrupts
@@ -175,6 +202,9 @@ begin
       else
         next_state <= S_FETCH_1;
       end if;
+
+    elsif(current_state = S_LOGIC_TEST) then
+      next_state <= S_FETCH_0;
 
     elsif(current_state = S_FETCH_1) then
       next_state <= S_FETCH_2;
@@ -565,6 +595,8 @@ begin
     -- CLI
     elsif (current_state = S_CLI_4) then
       next_state <= S_FETCH_0;
+--    elsif (current_state = S_CLI_5) then
+--      next_state <= S_FETCH_0;
 
     -- Fault vector lookup
     elsif (current_state = S_LD_ILL_OP_VEC_4) then
@@ -572,6 +604,8 @@ begin
 
     -- Interrupt vector lookup
     elsif (current_state = S_LD_INT_VEC_4) then
+      next_state <= S_LD_INT_VEC_5;
+    elsif (current_state = S_LD_INT_VEC_5) then
       next_state <= S_FETCH_0;
 
     -- Triggers Illegal Opcode Fault Handling
@@ -608,7 +642,7 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
-        interrupt_clr <= '0';
+        --interrupt_clr <= '0';
 --        fault         <= "0000";
 
       when S_FETCH_1 =>                 -- Increment PC
@@ -1634,6 +1668,7 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
+        interrupt_clr <= '0';
 --        fault         <= "0000";
 
       when S_STI_5 =>
@@ -1653,6 +1688,7 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
+        interrupt_clr <= '0';
 --        fault         <= "0000";        
       when S_STI_6 =>
         IR_Load       <= '0';
@@ -1671,6 +1707,7 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
+        interrupt_clr <= '0';
 --        fault         <= "0000";
 
       when S_STI_7 =>
@@ -1690,6 +1727,7 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
+        interrupt_clr <= '0';
 --        fault         <= "0000";        
 
       when S_STI_8 =>
@@ -1709,6 +1747,7 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
+        interrupt_clr <= '0';
 --        fault         <= "0000";
 
       when S_STI_9 =>
@@ -1728,6 +1767,7 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
+        interrupt_clr <= '0';
 --        fault         <= "0000";
 
       when S_RTI_4 =>                   -- Decrement Stack Pointer
@@ -2356,8 +2396,33 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
-        fault         <= "0000";
+        interrupt_clr <= '0';
+--        internal_interrupt <= '1';
+--        fault         <= "0000";
+        
+        
+      when S_LD_INT_VEC_5 =>
+        IR_Load       <= '0';
+        MAR_Load      <= '0';
+        PC_Load       <= '0';
+        PC_Inc        <= '0';
+        A_Load        <= '0';
+        B_Load        <= '0';
+        ALU_Sel       <= "000";
+        CCR_Load      <= '0';
+        Bus1_Sel      <= "00";          -- "00"=PC,  "01"=A,    "10"=B
+        Bus2_Sel      <= "11";  -- "00"=ALU, "01"=Bus1, "10"=from_memory, "11"=Vector
+        write         <= '0';
+        cpu_exception <= '0';
+        illegal_op    <= '0';
+        SP_Inc        <= '0';
+        SP_Dec        <= '0';
+        SP_Enable     <= '0';
         interrupt_clr <= '1';
+--        fault         <= "0000";
+--        interrupt_clr <= '1';
+        
+--        internal_interrupt <= '1';
 
       when S_ILL_OP_4 =>
         IR_Load       <= '0';
@@ -2377,6 +2442,48 @@ begin
         SP_Dec        <= '0';
         SP_Enable     <= '0';
         fault         <= "0001";
+        
+      when S_CLI_4 =>
+        IR_Load       <= '0';
+        MAR_Load      <= '0';
+        PC_Load       <= '0';
+        PC_Inc        <= '0';
+        A_Load        <= '0';
+        B_Load        <= '0';
+        ALU_Sel       <= "000";
+        CCR_Load      <= '0';
+        Bus1_Sel      <= "00";          -- "00"=PC,  "01"=A,    "10"=B
+        Bus2_Sel      <= "10";  -- "00"=ALU, "01"=Bus1, "10"=from_memory, "11"=Vector
+        write         <= '0';
+        cpu_exception <= '0';
+        illegal_op    <= '0';
+        SP_Inc        <= '0';
+        SP_Dec        <= '0';
+        SP_Enable     <= '0';
+--        fault         <= "0000";
+        interrupt_clr <= '1';
+--        internal_interrupt <= '0';
+        
+      when S_CLI_5 =>
+        IR_Load       <= '0';
+        MAR_Load      <= '0';
+        PC_Load       <= '0';
+        PC_Inc        <= '0';
+        A_Load        <= '0';
+        B_Load        <= '0';
+        ALU_Sel       <= "000";
+        CCR_Load      <= '0';
+        Bus1_Sel      <= "00";          -- "00"=PC,  "01"=A,    "10"=B
+        Bus2_Sel      <= "10";  -- "00"=ALU, "01"=Bus1, "10"=from_memory, "11"=Vector
+        write         <= '0';
+        cpu_exception <= '0';
+        illegal_op    <= '0';
+        SP_Inc        <= '0';
+        SP_Dec        <= '0';
+        SP_Enable     <= '0';
+--        fault         <= "0000";
+        interrupt_clr <= '0';
+--        internal_interrupt <= '0';
 
       when others =>
         IR_Load       <= '0';
@@ -2395,6 +2502,7 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
+        interrupt_clr <= '0';
 --        fault         <= "0000";
 
     end case;

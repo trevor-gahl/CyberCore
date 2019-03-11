@@ -41,31 +41,26 @@ signal current_state, next_state : state_type;
        clk_in1  : in  std_logic);
   end component;
 
-  component uart_tx is
-    generic (
-      clks_per_bit : integer := 868     -- Needs to be set correctly
-      );
-    port (
-      clk       : in  std_logic;
-      tx_dv     : in  std_logic;
-      tx_byte   : in  std_logic_vector(7 downto 0);
-      tx_active : out std_logic;
-      tx_serial : out std_logic;
-      tx_done   : out std_logic
-      );
-  end component uart_tx;
+component uart is
+  Port (
+  clk      : in std_logic;
+  uart_clk : in std_logic;
+  Rx       : in std_logic;
+  Tx       : out std_logic;
+  ready_flag : out std_logic;
+  received_byte : out std_logic_vector(7 downto 0);
+  address_out : out std_logic_vector(2 downto 0);
+  output_1 : out std_logic_vector(7 downto 0);
+  output_2 : out std_logic_vector(7 downto 0);
+  output_3 : out std_logic_vector(7 downto 0);
+  output_4 : out std_logic_vector(7 downto 0);
+  output_5 : out std_logic_vector(7 downto 0);
+  output_6 : out std_logic_vector(7 downto 0);
+  output_7 : out std_logic_vector(7 downto 0);
+  output_8 : out std_logic_vector(7 downto 0)
+   );
+end component;
 
-  component uart_rx is
-    generic (
-      clks_per_bit : integer := 868     -- Needs to be set correctly
-      );
-    port (
-      clk       : in  std_logic;
-      rx_serial : in  std_logic;
-      rx_dv     : out std_logic;
-      rx_byte   : out std_logic_vector(7 downto 0)
-      );
-  end component uart_rx;
 --  component char_decoder
 --    port (bin_in        : in  std_logic_vector (3 downto 0);
 --          seven_seg_out : out std_logic_vector (6 downto 0));
@@ -123,10 +118,19 @@ signal current_state, next_state : state_type;
     port(
       clk    : in std_logic;
       probe0 : in std_logic_vector(7 downto 0);
-      probe1 : in std_logic_vector(7 downto 0);
-      probe2 : in std_logic_vector(7 downto 0);
+      probe1 : in std_logic_vector(2 downto 0);
+      probe2 : in std_logic_vector(3 downto 0);
       probe3 : in std_logic_vector(7 downto 0);
-      probe4 : in std_logic_vector(7 downto 0)
+      probe4 : in std_logic_vector(7 downto 0);
+      probe5 : in std_logic_vector(7 downto 0);
+      probe6 : in std_logic_vector(7 downto 0);
+      probe7 : in std_logic_vector(7 downto 0);
+      probe8 : in std_logic_vector(7 downto 0);
+      probe9 : in std_logic_vector(7 downto 0);
+      probe10 : in std_logic_vector(7 downto 0);
+      probe11 : in std_logic;
+      probe12 : in std_logic;
+      probe13 : in std_logic
       );
   end component;
 
@@ -139,14 +143,7 @@ signal current_state, next_state : state_type;
   signal voter_exception_1, voter_exception_2, voter_exception_3 : std_logic;
   signal display_value                                           : std_logic_vector(15 downto 0);
 
-  -- UART
-  signal clks_per_bit                                           : integer := 87;
-  signal uart_clk                                               : std_logic;
-  signal rx_dv_sig                                              : std_logic;
-  signal rx_byte_val                                            : std_logic_vector(7 downto 0);
-  signal tx_dv_sig                                              : std_logic;
-  signal tx_byte_val                                            : std_logic_vector(7 downto 0);
-  signal tx_done_sig                                            : std_logic;
+  signal buff_ready     : std_logic;
   signal buff_address                                           : std_logic_vector(3 downto 0);
   signal buff1, buff2, buff3, buff4, buff5, buff6, buff7, buff8 : std_logic_vector(7 downto 0);
 
@@ -154,9 +151,12 @@ signal current_state, next_state : state_type;
   signal interrupt     : std_logic_vector(3 downto 0) := "0000";
   signal interrupt_clr : std_logic                    := '0';
   signal rx_read       : std_logic_vector(7 downto 0);
-  signal uart          : std_logic                    := '0';
-
+--  signal uart          : std_logic                    := '0';
+  
+  signal uart_clk : std_logic;
+  signal rx_byte_val : std_logic_vector(7 downto 0);
   -- Debugging
+  signal address_out : std_logic_vector(2 downto 0);
   signal probe1 : std_logic_vector(7 downto 0);
   signal probe2 : std_logic_vector(7 downto 0);
 
@@ -168,32 +168,8 @@ begin
 
 --  sw_data_in <= "0000" & SW;
 
-  -- Instantiate UART transmitter
-  uart_transmit : uart_tx
-    generic map (
-      clks_per_bit => 87
-      )
-    port map (
-      clk       => uart_clk,
-      tx_dv     => tx_dv_sig,
-      tx_byte   => tx_byte_val,
-      tx_active => open,
-      tx_serial => Tx,
-      tx_done   => tx_done_sig
-      );
 
-  -- Instantiate UART Receiver
-  uart_receive : uart_rx
-    generic map (
-      clks_per_bit => 87
-      )
-    port map (
-      clk       => uart_clk,
-      rx_serial => Rx,
-      rx_dv     => rx_dv_sig,
-      rx_byte   => rx_byte_val
-      );
-  display_value <= rx_read & port_out_temp01;
+  display_value <= rx_byte_val & port_out_temp01;
   clock_div : clock_div_prec port map (Clock_in  => CLK,
                                        Sel       => "11",
                                        Reset     => RESET,
@@ -202,6 +178,22 @@ begin
   uart_clock_div : clk_wiz_0 port map (clk_in1  => CLK,
                                        reset    => RESET,
                                        clk_out1 => uart_clk);
+                                       
+  uart_comp : uart port map (clk => CLK,
+                             uart_clk => uart_clk,
+                             Rx => Rx,
+                             Tx => Tx,
+                             ready_flag => buff_ready,
+                             received_byte => rx_byte_val,
+                             address_out => address_out,
+                             output_1 => buff1,
+                             output_2 => buff2,
+                             output_3 => buff3,
+                             output_4 => buff4,
+                             output_5 => buff5,
+                             output_6 => buff6,
+                             output_7 => buff7,
+                             output_8 => buff8);
 
   comp1 : computer_core_1 port map (clock         => CLK,
                                     RESET         => Reset,
@@ -222,25 +214,42 @@ begin
                                     port_in_11    => buff4,
                                     port_in_12    => buff5,
                                     port_in_13    => buff6,
-                                    port_in_14    => CLI,
-                                    port_in_15    => RTI,
+                                    port_in_14    => buff7,
+                                    port_in_15    => buff8,
                                     port_out_00   => port_out_temp01,
                                     port_out_01   => port_out_temp02,
                                     port_out_02   => port_out_temp03
                                     );
 
-  probe1 <= "0000000"&uart;
-  probe2 <= buff_address&interrupt;
+  probe1 <= "00"&interrupt_clr&interrupt&buff_ready;
+--  probe2 <= buff_address&interrupt;
 
   debug : ila_0 port map(
     clk    => CLK,
     probe0 => port_out_temp01,
-    probe1 => probe1,
-    probe2 => probe2,
-    probe3 => rx_read,
-    probe4 => rx_byte_val
+    probe1 => address_out,
+    probe2 => interrupt,
+    probe3 => buff1,
+    probe4 => buff2,
+    probe5 => buff3,
+    probe6 => buff4,
+    probe7 => buff5,
+    probe8 => buff6,
+    probe9 => buff7,
+    probe10 => buff8,
+    probe11 => interrupt_clr,
+    probe12 => buff_ready,
+    probe13 => exception_flag_1
     );
 
+test : process(buff_ready)
+begin
+if(interrupt_clr = '1') then
+   interrupt <= "0000";
+elsif(rising_edge(buff_ready)) then
+   interrupt <= "0001";
+ end if;
+ end process;
 
 --int_proc: process(CLK)
 --begin
@@ -337,78 +346,78 @@ begin
 --  end process;
 
 
-next_state_logic : process(CLK)
-begin
-  if(rising_edge(CLK)) then
-    current_state <= next_state;
-  end if;
-end process;
+--next_state_logic : process(CLK)
+--begin
+--  if(rising_edge(CLK)) then
+--    current_state <= next_state;
+--  end if;
+--end process;
 
-state_logic : process(rx_dv_sig, CLK, interrupt_clr)
-begin
-if(current_state = state_7 and interrupt_clr = '1') then
-        next_state <= state_1;
-  else
-  if(rising_edge(rx_dv_sig)) then
+--state_logic : process(rx_dv_sig, CLK, interrupt_clr)
+--begin
+--if(current_state = state_7 and interrupt_clr = '1') then
+--        next_state <= state_1;
+--  else
+--  if(rising_edge(rx_dv_sig)) then
   
-        case(current_state) is
-      when state_1 =>
-        rx_read <= rx_byte_val;
-        next_state <= state_2;
-      when state_2 =>
-        rx_read <= rx_byte_val;
-        next_state <= state_3;
-      when state_3 =>
-        rx_read <= rx_byte_val;
-        next_state <= state_4;
-      when state_4 =>
-        rx_read <= rx_byte_val;
-        next_state <= state_5;
-      when state_5 =>
-        rx_read <= rx_byte_val;
-        next_state <= state_6;
-      when state_6 =>
-        rx_read <= rx_byte_val;
-        next_state <= state_7;
-      when others =>
-        next_state <= current_state;
-      end case;
-      end if;
-    end if;
-  end process;
+--        case(current_state) is
+--      when state_1 =>
+--        rx_read <= rx_byte_val;
+--        next_state <= state_2;
+--      when state_2 =>
+--        rx_read <= rx_byte_val;
+--        next_state <= state_3;
+--      when state_3 =>
+--        rx_read <= rx_byte_val;
+--        next_state <= state_4;
+--      when state_4 =>
+--        rx_read <= rx_byte_val;
+--        next_state <= state_5;
+--      when state_5 =>
+--        rx_read <= rx_byte_val;
+--        next_state <= state_6;
+--      when state_6 =>
+--        rx_read <= rx_byte_val;
+--        next_state <= state_7;
+--      when others =>
+--        next_state <= current_state;
+--      end case;
+--      end if;
+--    end if;
+--  end process;
   
-state_output : process(current_state)
-begin
-  case(current_state) is
-    when state_1 =>
-      buff1 <= rx_read;
-      buff_address <= "0000";
-      interrupt <= "0000";
-    when state_2 =>
-      buff2 <= rx_read;
-      buff_address <= "0001";
-      interrupt <= "0000";
-    when state_3 =>
-      buff3 <= rx_read;
-      buff_address <= "0010";
-      interrupt <= "0000";
-    when state_4 =>
-      buff4 <= rx_read;
-      buff_address <= "0011";
-      interrupt <= "0000";
-    when state_5 => 
-      buff5 <= rx_read;
-      buff_address <= "0100";
-      interrupt <= "0000";
-    when state_6 =>
-      buff6 <= x"E0";
-      buff_address <= "0101";
-      interrupt <= "0000";
-    when state_7 => 
-      buff_address <= "0101";
-      interrupt <= "0001";
-    end case;
-  end process;
+--state_output : process(current_state)
+--begin
+--  case(current_state) is
+--    when state_1 =>
+--      buff1 <= rx_read;
+--      buff_address <= "0000";
+--      interrupt <= "0000";
+--    when state_2 =>
+--      buff2 <= rx_read;
+--      buff_address <= "0001";
+--      interrupt <= "0000";
+--    when state_3 =>
+--      buff3 <= rx_read;
+--      buff_address <= "0010";
+--      interrupt <= "0000";
+--    when state_4 =>
+--      buff4 <= rx_read;
+--      buff_address <= "0011";
+--      interrupt <= "0000";
+--    when state_5 => 
+--      buff5 <= rx_read;
+--      buff_address <= "0100";
+--      interrupt <= "0000";
+--    when state_6 =>
+--      buff6 <= x"60";
+--      buff_address <= "0101";
+--      interrupt <= "0000";
+--    when state_7 => 
+--      buff_address <= "0101";
+--      interrupt <= "0001";
+--    end case;
+--  end process;
 
 
   display_out : char_driver port map

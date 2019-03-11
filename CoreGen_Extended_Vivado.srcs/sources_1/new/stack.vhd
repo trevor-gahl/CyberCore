@@ -12,7 +12,7 @@ end entity;
 
 architecture Behavioral of stack_1 is
 
-  type stack is array (200 to 223) of std_logic_vector(7 downto 0);
+  type stack is array (200 to 255) of std_logic_vector(7 downto 0);
   signal stack_value : stack;
   signal EN          : std_logic;
 
@@ -21,7 +21,7 @@ begin
   enable_stack : process(address)
   begin
     if((to_integer(unsigned(address)) >= 200) and
-       (to_integer(unsigned(address)) <= 223)) then
+       (to_integer(unsigned(address)) <= 255)) then
       EN <= '1';
     else
       EN <= '0';

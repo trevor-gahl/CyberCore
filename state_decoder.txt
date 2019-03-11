@@ -1,0 +1,130 @@
+State                   Hex_Value
+
+S_FETCH_0               00
+S_FETCH_1               01
+S_FETCH_2               02
+
+S_DECODE_3              03
+
+S_LDA_IMM_4             04
+S_LDA_IMM_5             05
+S_LDA_IMM_6             06
+
+S_LDA_DIR_4             07
+S_LDA_DIR_5             08
+S_LDA_DIR_6             09
+S_LDA_DIR_7             0A
+S_LDA_DIR_8             0B
+
+S_STA_DIR_4             0C
+S_STA_DIR_5             0D
+S_STA_DIR_6             0E
+S_STA_DIR_7             0F
+
+S_LDB_IMM_4             10
+S_LDB_IMM_5             11
+S_LDB_IMM_6             12
+
+S_LDB_DIR_4             13
+S_LDB_DIR_5             14
+S_LDB_DIR_6             15
+S_LDB_DIR_7             16
+
+S_STB_DIR_4             17
+S_STB_DIR_5             18
+S_STB_DIR_6             19
+S_STB_DIR_7             1A
+
+S_ADD_AB_4              1B
+
+S_SUB_AB_4              1C
+
+S_INC_A_4               1D
+
+S_DEC_A_4               1E
+
+S_INC_B_4               1F
+
+S_DEC_B_4               20
+
+S_AND_AB_4              21
+
+S_ORR_AB_4              22
+
+S_PSH_A_4               23
+S_PSH_A_5               24
+
+S_PSH_B_4               25
+S_PSH_B_5               26
+
+S_PSH_PC_4              27
+S_PSH_PC_5              28
+
+S_PLL_PC_4              29
+S_PLL_PC_5              2A
+S_PLL_PC_6              2B
+S_PLL_PC_7              2C
+
+S_PLL_A_4               2D
+S_PLL_A_5               2E
+S_PLL_A_6               2F
+S_PLL_A_7               30
+
+S_PLL_B_4               31
+S_PLL_B_5               32
+S_PLL_B_6               33
+S_PLL_B_7               34
+
+S_STI_4                 35
+S_STI_5                 36
+S_STI_6                 37
+S_STI_7                 38
+S_STI_8                 39
+S_STI_9                 3A
+
+S_CLI_4                 3B
+
+S_RTI_4                 3C
+S_RTI_5                 3D
+S_RTI_6                 3E
+S_RTI_7                 3F
+S_RTI_8                 40
+S_RTI_9                 41
+S_RTI_10                42
+S_RTI_11                43
+S_RTI_12                44
+S_RTI_13                45
+S_RTI_14                46
+S_RTI_15                47
+
+S_BRA_4                 48
+S_BRA_5                 49
+S_BRA_6                 4A
+
+S_BEQ_4                 4B
+S_BEQ_5                 4C
+S_BEQ_6                 4D
+S_BEQ_7                 4E
+
+S_BMI_4                 4F
+S_BMI_5                 50
+S_BMI_6                 51
+S_BMI_7                 52
+
+S_BCS_4                 53
+S_BCS_5                 54
+S_BCS_6                 55
+S_BCS_7                 56
+
+S_BVS_4                 57
+S_BVS_5                 58
+S_BVS_6                 59
+S_BVS_7                 5A
+
+S_ILL_OP_4              5B
+
+S_LD_ILL_OP_VEC_4       5C
+
+S_LD_INT_VEC_4          5D
+
+S_LOGIC_TEST            5E
