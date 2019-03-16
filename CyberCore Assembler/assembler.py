@@ -1,6 +1,7 @@
 import random
 import os
 import shutil
+import errno
 
 programCode = []
 
@@ -13,7 +14,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 library xil_defaultlib;
 """
-        instructionFile = "use xil_defaultlib.instructions_core_1.all;" %core
+        instructionFile = "use xil_defaultlib.instructions_core_%s.all;" %core
 
         entityName = "entity rom_128x8_sync_core_%s is" %core
         entityBlock = """
@@ -137,17 +138,29 @@ use IEEE.STD_LOGIC_1164.ALL;"""
         line26 = "constant PLL_PC  : std_logic_vector (7 downto 0) :=x\"%s\";" %PLL_PC
         line27 = "constant RTI     : std_logic_vector (7 downto 0) :=x\"%s\";" %RTI
         line28 = "constant STI     : std_logic_vector (7 downto 0) :=x\"%s\";" %STI
-        line29 = "constant add     : std_logic_vector (7 downto 0) :=\"000\";"
-        line30 = "constant sub     : std_logic_vector (7 downto 0) :=\"001\";"
-        line31 = "constant andab   : std_logic_vector (7 downto 0) :=\"010\";"
-        line32 = "constant orrab   : std_logic_vector (7 downto 0) :=\"011\";"
-        line33 = "constant inca    : std_logic_vector (7 downto 0) :=\"100\";"
-        line34 = "constant deca    : std_logic_vector (7 downto 0) :=\"101\";"
-        line35 = "constant incb    : std_logic_vector (7 downto 0) :=\"110\";"
-        line36 = "constant decb    : std_logic_vector (7 downto 0) :=\"111\";"
+        line29 = "constant add     : std_logic_vector (2 downto 0) :=\"000\";"
+        line30 = "constant sub     : std_logic_vector (2 downto 0) :=\"001\";"
+        line31 = "constant andab   : std_logic_vector (2 downto 0) :=\"010\";"
+        line32 = "constant orrab   : std_logic_vector (2 downto 0) :=\"011\";"
+        line33 = "constant inca    : std_logic_vector (2 downto 0) :=\"100\";"
+        line34 = "constant deca    : std_logic_vector (2 downto 0) :=\"101\";"
+        line35 = "constant incb    : std_logic_vector (2 downto 0) :=\"110\";"
+        line36 = "constant decb    : std_logic_vector (2 downto 0) :=\"111\";"
         line37 = "end package instructions_core_%s;" %core
         file.write('%s \n' %(header))
         file.write("%s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s \n %s" %(line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25, line26, line27, line28, line29, line30, line31, line32, line33, line34, line35, line36, line37))
+
+
+def copy(src, dest):
+    try:
+        shutil.copytree(src, dest)
+    except OSError as e:
+        # If the error was caused because the source wasn't a directory
+        if e.errno == errno.ENOTDIR:
+            shutil.copy(src, dest)
+        else:
+            print('Directory not copied. Error: %s' % e)
+
 
 def projectGen(source,destination):
     if not os.path.exists(destination):
@@ -159,23 +172,22 @@ def projectGen(source,destination):
             shutil.copy(full_file_name, destination)
 
 
-# source = 'Master_Trip_Core'
-# destination = input('Enter Project Name: ')
-# projectGen(source,destination)
-# file1 = '%s/instructions_core_1.vhd' %destination
-# file2 = '%s/instructions_core_2.vhd' %destination
-# file3 = '%s/instructions_core_3.vhd' %destination
-# program = 'program.asm'
-# mem1 = '%s/rom_128x8_sync_core_1.vhd' %destination
-# mem2 = '%s/rom_128x8_sync_core_2.vhd' %destination
-# mem3 = '%s/rom_128x8_sync_core_3.vhd' %destination
+source = 'CyberCore Sources'
+destination = input('Enter Project Name: ')
+copy(source,destination)
+file1 = '%s/instructions_core_1.vhd' %destination
+file2 = '%s/instructions_core_2.vhd' %destination
+file3 = '%s/instructions_core_3.vhd' %destination
+program = 'program.asm'
+mem1 = '%s/rom_128x8_sync_core_1.vhd' %destination
+mem2 = '%s/rom_128x8_sync_core_2.vhd' %destination
+mem3 = '%s/rom_128x8_sync_core_3.vhd' %destination
 
-
-# projectGen(source,destination)
-# createInstructionFile(file1,'1')
-# createInstructionFile(file2,'2')
-createInstructionFile("instruction_core_3.vhd",'3')
-# createProgramList(program)
-# createProgramMemory(mem1,programCode,'1')
-# createProgramMemory(mem2,programCode,'2')
-# createProgramMemory(mem3,programCode,'3')
+#projectGen(source,destination)
+createInstructionFile(file1,'1')
+createInstructionFile(file2,'2')
+createInstructionFile(file3,'3')
+createProgramList(program)
+createProgramMemory(mem1,programCode,'1')
+createProgramMemory(mem2,programCode,'2')
+createProgramMemory(mem3,programCode,'3')

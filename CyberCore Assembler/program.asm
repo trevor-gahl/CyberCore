@@ -1,0 +1,6 @@
+LDA_IMM
+x"65"
+INC_A
+INC_A
+BRA
+x"00"
