@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1552755896">
+  <File Type="PA-TCL" Name="top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="top.vds"/>
+  <File Type="RDS-UTIL" Name="top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="top_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/ila_0/ila_0.xci">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/ip/ila_0/ila_0.xci"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/instructions_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/instructions_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/alu_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/alu_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/instructions_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/instructions_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701104"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/alu_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/alu_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552700821"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/instructions_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/instructions_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701112"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/alu_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/alu_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552700836"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/attack_voter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/buffer.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/buffer.vhd"/>
+        <Attr Name="ImportTime" Val="1552691041"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/char_decoder.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/char_decoder.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/char_driver.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/char_driver.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/clock_div_prec.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/clock_div_prec.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/computer_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/computer_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/computer_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/computer_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552700923"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/computer_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/computer_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552700967"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/control_unit_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/control_unit_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552697084"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/control_unit_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/control_unit_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552700998"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/control_unit_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/control_unit_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701009"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/cpu_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/cpu_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/cpu_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/cpu_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701033"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/cpu_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/cpu_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701054"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/data_path_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/data_path_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552695842"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/data_path_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/data_path_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701075"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/data_path_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/data_path_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701088"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/memory_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/memory_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552746570"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/memory_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/memory_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701170"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/memory_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/memory_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701208"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/rom_128x8_sync_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/rom_128x8_sync_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/rom_128x8_sync_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/rom_128x8_sync_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701223"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/rom_128x8_sync_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/rom_128x8_sync_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701234"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/rw_96x8_sync_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/rw_96x8_sync_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/rw_96x8_sync_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/rw_96x8_sync_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701245"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/rw_96x8_sync_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/rw_96x8_sync_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701254"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/stack_core_1.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/stack_core_1.vhd"/>
+        <Attr Name="ImportTime" Val="1552701290"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/stack_core_2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/stack_core_2.vhd"/>
+        <Attr Name="ImportTime" Val="1552701309"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/stack_core_3.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/stack_core_3.vhd"/>
+        <Attr Name="ImportTime" Val="1552701327"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/uart.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/uart.vhd"/>
+        <Attr Name="ImportTime" Val="1552691041"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/uart_rx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/uart_rx.vhd"/>
+        <Attr Name="ImportTime" Val="1552691041"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/uart_tx.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/uart_tx.vhd"/>
+        <Attr Name="ImportTime" Val="1552691041"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/CyberCore Sources/top.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/top.vhd"/>
+        <Attr Name="ImportTime" Val="1552746546"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="top"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/CyberCore Sources/Basys3_Master.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../CyberCore/CyberCore Sources/Basys3_Master.xdc"/>
+        <Attr Name="ImportTime" Val="1552691040"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/CyberCore Sources/Basys3_Master.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
+</GenRun>

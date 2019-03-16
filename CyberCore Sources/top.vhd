@@ -243,8 +243,6 @@ begin
   LED(1) <= exception_flag_2;
   LED(2) <= exception_flag_3;
 
---  sw_data_in <= "0000" & SW;
-
 
   display_value <= rx_byte_val & port_out_temp01;
   clock_div : clock_div_prec port map (Clock_in  => CLK,
@@ -293,9 +291,7 @@ begin
                                     port_in_13    => buff6,
                                     port_in_14    => buff7,
                                     port_in_15    => buff8,
-                                    port_out_00   => port_out_temp01,
-                                    port_out_01   => port_out_temp02,
-                                    port_out_02   => port_out_temp03
+                                    port_out_00   => port_out_temp01
                                     );
 
   comp2 : computer_core_2 port map (clock         => CLK,
@@ -319,9 +315,7 @@ begin
                                     port_in_13    => buff6,
                                     port_in_14    => buff7,
                                     port_in_15    => buff8,
-                                    port_out_00   => port_out_temp01,
-                                    port_out_01   => port_out_temp02,
-                                    port_out_02   => port_out_temp03
+                                    port_out_00   => port_out_temp02
                                     );
 
   comp3 : computer_core_3 port map (clock         => CLK,
@@ -345,15 +339,12 @@ begin
                                     port_in_13    => buff6,
                                     port_in_14    => buff7,
                                     port_in_15    => buff8,
-                                    port_out_00   => port_out_temp01,
-                                    port_out_01   => port_out_temp02,
-                                    port_out_02   => port_out_temp03
+                                    port_out_00   => port_out_temp03
                                     );
 
 
 
   probe1 <= "00"&interrupt_clr&interrupt&buff_ready;
---  probe2 <= buff_address&interrupt;
 
   debug : ila_0 port map(
     clk     => CLK,
@@ -394,24 +385,6 @@ begin
     end if;
   end process;
 
---if(rising_edge(CLK)) then
---  case(current_state) is
---    when interrupt_state =>
---      if(interrupt_clr = '1') then
---        next_state <= interrupt_idle;
---      elsif(interrupt_clr = '0') then
---        next_state <= interrupt_state;
---      end if;
---    when interrupt_idle =>
---      if(buff_ready = '1') then
---        next_state <= interrupt_state;
---      elsif(buff_ready = '0') then
---        next_state <= interrupt_idle;
---      end if;
---    end case;
---  end if;
---end process;
-
   state_output : process(current_state)
   begin
     case(current_state) is
@@ -422,78 +395,6 @@ begin
     end case;
   end process;
 
-
---if(current_state = interrupt_state and interrupt_clr = '1') then
---  next_state <= interrupt_idle;
---elsif(rising_edge
-
---state_logic : process(rx_dv_sig, CLK, interrupt_clr)
---begin
---if(current_state = state_7 and interrupt_clr = '1') then
---        next_state <= state_1;
---  else
---  if(rising_edge(rx_dv_sig)) then
-
---        case(current_state) is
---      when state_1 =>
---        rx_read <= rx_byte_val;
---        next_state <= state_2;
---      when state_2 =>
---        rx_read <= rx_byte_val;
---        next_state <= state_3;
---      when state_3 =>
---        rx_read <= rx_byte_val;
---        next_state <= state_4;
---      when state_4 =>
---        rx_read <= rx_byte_val;
---        next_state <= state_5;
---      when state_5 =>
---        rx_read <= rx_byte_val;
---        next_state <= state_6;
---      when state_6 =>
---        rx_read <= rx_byte_val;
---        next_state <= state_7;
---      when others =>
---        next_state <= current_state;
---      end case;
---      end if;
---    end if;
---  end process;
-
---state_output : process(current_state)
---begin
---  case(current_state) is
---    when state_1 =>
---      buff1 <= rx_read;
---      buff_address <= "0000";
---      interrupt <= "0000";
---    when state_2 =>
---      buff2 <= rx_read;
---      buff_address <= "0001";
---      interrupt <= "0000";
---    when state_3 =>
---      buff3 <= rx_read;
---      buff_address <= "0010";
---      interrupt <= "0000";
---    when state_4 =>
---      buff4 <= rx_read;
---      buff_address <= "0011";
---      interrupt <= "0000";
---    when state_5 =>
---      buff5 <= rx_read;
---      buff_address <= "0100";
---      interrupt <= "0000";
---    when state_6 =>
---      buff6 <= x"60";
---      buff_address <= "0101";
---      interrupt <= "0000";
---    when state_7 =>
---      buff_address <= "0101";
---      interrupt <= "0001";
---    end case;
---  end process;
-
-
   display_out : char_driver port map
     (
       clk         => CLK,
@@ -502,11 +403,6 @@ begin
       anode_sel   => anode_sel,
       led_display => led_display
       );
---  C0 : char_decoder port map (bin_in => OutA(7 downto 4), seven_seg_out => HEX5);
---  C1 : char_decoder port map (bin_in => OutA(3 downto 0), seven_seg_out => HEX4);
---  C2 : char_decoder port map (bin_in => OutB(7 downto 4), seven_seg_out => HEX3);
---  C3 : char_decoder port map (bin_in => OutB(3 downto 0), seven_seg_out => HEX2);
---  C4 : char_decoder port map (bin_in => OutC(7 downto 4), seven_seg_out => HEX1);
---  C5 : char_decoder port map (bin_in => OutC(3 downto 0), seven_seg_out => HEX0);
+
 
 end architecture;

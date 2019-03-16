@@ -68,17 +68,17 @@ architecture memory_arch of memory_core_1 is
           write    : in  std_logic);
   end component;
 
-  component ila_1 is
-    port(
-      clk    : in std_logic;
-      probe0 : in std_logic_vector(7 downto 0);
-      probe1 : in std_logic_vector(7 downto 0);
-      probe2 : in std_logic_vector(7 downto 0);
-      probe3 : in std_logic_vector(7 downto 0)
---        probe4 : in std_logic_vector(7 downto 0);
---        probe5 : in std_logic_vector(7 downto 0)
-      );
-  end component;
+--   component ila_1 is
+--     port(
+--       clk    : in std_logic;
+--       probe0 : in std_logic_vector(7 downto 0);
+--       probe1 : in std_logic_vector(7 downto 0);
+--       probe2 : in std_logic_vector(7 downto 0);
+--       probe3 : in std_logic_vector(7 downto 0)
+-- --        probe4 : in std_logic_vector(7 downto 0);
+-- --        probe5 : in std_logic_vector(7 downto 0)
+--       );
+--   end component;
 
   signal rom_data_out   : std_logic_vector(7 downto 0);
   signal rw_data_out    : std_logic_vector(7 downto 0);
@@ -105,15 +105,15 @@ begin
               data_in  => data_in,
               data_out => stack_data_out);
 
-  debug : ila_1 port map(
-    clk    => clock,
-    probe0 => address,
-    probe1 => data_in,
-    probe2 => port_in_00,
-    probe3 => (others => '1')
---        probe4 =>stack_data_out,
---        probe5 => rw_data_out
-    );
+--   debug : ila_1 port map(
+--     clk    => clock,
+--     probe0 => address,
+--     probe1 => data_in,
+--     probe2 => port_in_00,
+--     probe3 => (others => '1')
+-- --        probe4 =>stack_data_out,
+-- --        probe5 => rw_data_out
+--     );
 
 
 --Multiplexer code
