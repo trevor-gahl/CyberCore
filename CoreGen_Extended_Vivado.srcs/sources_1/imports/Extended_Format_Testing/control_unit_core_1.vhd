@@ -34,13 +34,6 @@ end entity;
 
 architecture control_unit_arch of control_unit_core_1 is
 
-component ila_3 is
- port (
- clk : in std_logic;
- probe0 : in std_logic_vector(6 downto 0)
- );
- end component;
-
 -- Type declration
   type state_type is(
     -- Fetches opcodes from memory
@@ -114,10 +107,6 @@ component ila_3 is
     S_STI_6, S_STI_7,                   -- PSH_B
     S_STI_8, S_STI_9,                   -- PSH_A
 
-    -- CLI (Clear interrupt)
-    S_CLI_4,
-    S_CLI_5,
-
     -- RTI (A, B, PC) (Return Interrupt)
     S_RTI_4, S_RTI_5, S_RTI_6, S_RTI_7,      -- PLL_A
     S_RTI_8, S_RTI_9, S_RTI_10, S_RTI_11,    -- PLL_B
@@ -142,7 +131,7 @@ component ila_3 is
     S_ILL_OP_4,
 
     -- Load Illegal Opcode Fault Vector
-    S_LD_ILL_OP_VEC_4,
+--    S_LD_ILL_OP_VEC_4,
 
     -- Load Interrupt Vector
     S_LD_INT_VEC_4, S_LD_INT_VEC_5,
@@ -150,10 +139,10 @@ component ila_3 is
     S_LOGIC_TEST
     );
 
-  signal current_state, next_state : state_type;
+  signal current_state : state_type := S_FETCH_0;
+  signal next_state : state_type := S_FETCH_1;
   signal interrupt_debug : std_logic_vector(3 downto 0);
   signal internal_interrupt  : std_logic := '0';
-  signal interrupt_clr_debug : std_logic;
   signal fault                     : std_logic_vector(3 downto 0);
   
   attribute mark_debug : string;
@@ -169,7 +158,6 @@ component ila_3 is
 -- start architecture
 begin
 
---  interrupt_clr <= interrupt_clr_signal;
   fault_trigger <= fault;
   interrupt_debug <= interrupt;
   -- State memory for the next state and the instructions wanted (LDA, BRA etc)
@@ -195,9 +183,7 @@ begin
 --      if (internal_interrupt = '1') then
 --        next_state <= S_FETCH_1;
 --      els
-      if (fault > "0000") then          -- Check for internal faults
-        next_state <= S_STI_4;
-      elsif (interrupt > "0000") then   -- Check for external interrupts
+      if (interrupt > "0000") then   -- Check for external interrupts
         next_state <= S_STI_4;
       else
         next_state <= S_FETCH_1;
@@ -324,10 +310,6 @@ begin
       -- Pull B from Stack
       elsif(IR = PLL_B) then
         next_state <= S_PLL_B_4;
-
-      -- CLI
-      elsif(IR = CLI) then
-        next_state <= S_CLI_4;
 
       -- RTI
       elsif(IR = RTI) then
@@ -489,34 +471,19 @@ begin
     elsif (current_state = S_PSH_A_4) then
       next_state <= S_PSH_A_5;
     elsif (current_state = S_PSH_A_5) then
-      case(fault) is
-        when "0001" =>
-          next_state <= S_LD_ILL_OP_VEC_4;
-        when others =>
-          next_state <= S_FETCH_0;
-      end case;
+      next_state <= S_FETCH_0;
 
     -- PSH_B
     elsif (current_state = S_PSH_B_4) then
       next_state <= S_PSH_B_5;
     elsif (current_state = S_PSH_B_5) then
-      case(fault) is
-        when "0001" =>
-          next_state <= S_PSH_A_4;
-        when others =>
           next_state <= S_FETCH_0;
-      end case;
-
+          
     -- PSH_PC
     elsif (current_state = S_PSH_PC_4) then
       next_state <= S_PSH_PC_5;
     elsif (current_state = S_PSH_PC_5) then
-      case(fault) is
-        when "0001" =>
-          next_state <= S_PSH_B_4;
-        when others =>
-          next_state <= S_FETCH_0;
-      end case;
+      next_state <= S_FETCH_0;
 
     -- PLL_PC
     elsif (current_state = S_PLL_PC_4) then
@@ -586,21 +553,8 @@ begin
     elsif (current_state = S_STI_8) then
       next_state <= S_STI_9;
     elsif (current_state = S_STI_9) then
-      if (fault > "0000") then
-        next_state <= S_LD_ILL_OP_VEC_4;
-      else
         next_state <= S_LD_INT_VEC_4;
-      end if;
 
-    -- CLI
-    elsif (current_state = S_CLI_4) then
-      next_state <= S_FETCH_0;
---    elsif (current_state = S_CLI_5) then
---      next_state <= S_FETCH_0;
-
-    -- Fault vector lookup
-    elsif (current_state = S_LD_ILL_OP_VEC_4) then
-      next_state <= S_FETCH_0;
 
     -- Interrupt vector lookup
     elsif (current_state = S_LD_INT_VEC_4) then
@@ -610,7 +564,7 @@ begin
 
     -- Triggers Illegal Opcode Fault Handling
     elsif (current_state <= S_ILL_OP_4) then
-      next_state <= S_FETCH_0;
+      next_state <= S_ILL_OP_4;
 
     -- Illegal Opcode Trap
     else
@@ -643,7 +597,6 @@ begin
         SP_Dec        <= '0';
         SP_Enable     <= '0';
         --interrupt_clr <= '0';
---        fault         <= "0000";
 
       when S_FETCH_1 =>                 -- Increment PC
         IR_Load       <= '0';
@@ -662,7 +615,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_FETCH_2 =>         -- Opcode available on Bus2 and latched onto IR
         IR_Load       <= '1';
@@ -681,7 +633,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_DECODE_3 =>                -- opcode now in IR and is decoded
         IR_Load       <= '0';
@@ -700,7 +651,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
 -- Load A Immediate
       when S_LDA_IMM_4 =>  -- Operand is being loaded into A, pointer at location so load in MAR
@@ -720,7 +670,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDA_IMM_5 =>  -- Increment PC for the clock cycle to send operand
         IR_Load       <= '0';
@@ -739,7 +688,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDA_IMM_6 =>  -- operand is now on Bus2 and can be latched to A
         IR_Load       <= '0';
@@ -758,7 +706,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
 -- starts LDA DIR
       when S_LDA_DIR_4 =>               -- operand of instruction is address
@@ -778,7 +725,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDA_DIR_5 =>               -- increment PC
         IR_Load       <= '0';
@@ -797,7 +743,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDA_DIR_6 =>  -- operand is now on Bus2 and can be loaded in MAR
         IR_Load       <= '0';
@@ -816,7 +761,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDA_DIR_7 =>               -- Giving time without moving PC
         IR_Load       <= '0';
@@ -835,7 +779,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDA_DIR_8 =>  -- operand is now on Bus2 and can be latched to A
         IR_Load       <= '0';
@@ -854,7 +797,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
 -- Store A direct
       when S_STA_DIR_4 =>
@@ -874,7 +816,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STA_DIR_5 =>
         IR_Load       <= '0';
@@ -893,7 +834,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STA_DIR_6 =>
         IR_Load       <= '0';
@@ -912,7 +852,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STA_DIR_7 =>
         IR_Load       <= '0';
@@ -931,7 +870,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDB_IMM_4 =>  -- Put PC into MAR to provide address of Operand
         IR_Load       <= '0';
@@ -950,7 +888,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDB_IMM_5 =>  -- Increment PC, Operand will be available next state
         IR_Load       <= '0';
@@ -969,7 +906,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDB_IMM_6 =>               -- Operand is available, latch into B
         IR_Load       <= '0';
@@ -988,7 +924,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       -- LDB_DIR
       when S_LDB_DIR_4 =>  -- Put PC onto MAR to provide address of Operand
@@ -1008,7 +943,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDB_DIR_5 =>  -- Prepare to receive Operand from memory, increment PC
         IR_Load       <= '0';
@@ -1027,7 +961,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDB_DIR_6 =>  -- Put Operand into MAR (Leave Bus2=from_memory)
         IR_Load       <= '0';
@@ -1046,7 +979,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_LDB_DIR_7 =>       -- Put data arriving on "from_memory" into B
         IR_Load       <= '0';
@@ -1065,7 +997,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       --------------------------------------------------------------------------------------------------
       -- STB_DIR
@@ -1087,7 +1018,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STB_DIR_5 =>  -- Prepare to receive Operand from memory, increment PC
         IR_Load       <= '0';
@@ -1106,7 +1036,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STB_DIR_6 =>  -- Put Operand into MAR (Leave Bus2=from_memory)
         IR_Load       <= '0';
@@ -1125,7 +1054,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STB_DIR_7 =>  -- Put B onto Bus2, which is connected to "to_memory", assert write
         IR_Load       <= '0';
@@ -1144,7 +1072,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       --------------------------------------------------------------------------------------------------
       -- ADD_AB_AB
@@ -1166,7 +1093,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_SUB_AB_4 =>
 
@@ -1186,7 +1112,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";                                        
 
       when S_AND_AB_4 =>
 
@@ -1206,7 +1131,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_ORR_AB_4 =>
 
@@ -1226,7 +1150,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";           
 
       when S_INC_A_4 =>
 
@@ -1246,7 +1169,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_DEC_A_4 =>
 
@@ -1266,7 +1188,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_INC_B_4 =>
 
@@ -1286,11 +1207,9 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_DEC_B_4 =>                 -- Load B, Send decrement value to ALU
                                  -- and load CCR
-
         IR_Load       <= '0';
         MAR_Load      <= '0';
         PC_Load       <= '0';
@@ -1307,7 +1226,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_PSH_A_4 =>
         IR_Load       <= '0';
@@ -1326,7 +1244,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PSH_A_5 =>
         IR_Load       <= '0';
@@ -1345,7 +1262,6 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PSH_B_4 =>
         IR_Load       <= '0';
@@ -1364,7 +1280,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PSH_B_5 =>
         IR_Load       <= '0';
@@ -1383,7 +1298,6 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PSH_PC_4 =>
         IR_Load       <= '0';
@@ -1402,7 +1316,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PSH_PC_5 =>
         IR_Load       <= '0';
@@ -1421,7 +1334,6 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_PC_4 =>                -- Decrement Stack Pointer
         IR_Load       <= '0';
@@ -1440,7 +1352,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '1';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_PC_5 =>        -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1459,7 +1370,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_PC_6 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1478,7 +1388,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_PLL_PC_7 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1497,7 +1406,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_PLL_A_4 =>                 -- Decrement Stack Pointer
         IR_Load       <= '0';
@@ -1516,7 +1424,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '1';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_A_5 =>         -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1535,7 +1442,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_A_6 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1554,7 +1460,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";       
 
       when S_PLL_A_7 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1573,7 +1478,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_PLL_B_4 =>                 -- Decrement Stack Pointer
         IR_Load       <= '0';
@@ -1592,7 +1496,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '1';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_B_5 =>         -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1611,7 +1514,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_PLL_B_6 =>         -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1630,7 +1532,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000"; 
 
       when S_PLL_B_7 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1649,7 +1550,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_STI_4 =>
         IR_Load       <= '0';
@@ -1668,8 +1568,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
-        interrupt_clr <= '0';
---        fault         <= "0000";
 
       when S_STI_5 =>
         IR_Load       <= '0';
@@ -1688,8 +1586,7 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
-        interrupt_clr <= '0';
---        fault         <= "0000";        
+
       when S_STI_6 =>
         IR_Load       <= '0';
         MAR_Load      <= '1';
@@ -1707,8 +1604,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
-        interrupt_clr <= '0';
---        fault         <= "0000";
 
       when S_STI_7 =>
         IR_Load       <= '0';
@@ -1727,8 +1622,6 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
-        interrupt_clr <= '0';
---        fault         <= "0000";        
 
       when S_STI_8 =>
         IR_Load       <= '0';
@@ -1747,8 +1640,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
-        interrupt_clr <= '0';
---        fault         <= "0000";
 
       when S_STI_9 =>
         IR_Load       <= '0';
@@ -1767,8 +1658,6 @@ begin
         SP_Inc        <= '1';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
-        interrupt_clr <= '0';
---        fault         <= "0000";
 
       when S_RTI_4 =>                   -- Decrement Stack Pointer
         IR_Load       <= '0';
@@ -1787,7 +1676,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '1';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_RTI_5 =>           -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1806,7 +1694,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_RTI_6 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1825,7 +1712,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";       
 
       when S_RTI_7 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1844,7 +1730,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_RTI_8 =>                   -- Decrement Stack Pointer
         IR_Load       <= '0';
@@ -1863,7 +1748,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '1';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_RTI_9 =>           -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1882,7 +1766,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_RTI_10 =>          -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1901,7 +1784,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000"; 
 
       when S_RTI_11 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1920,7 +1802,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_RTI_12 =>                  -- Decrement Stack Pointer
         IR_Load       <= '0';
@@ -1939,7 +1820,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '1';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_RTI_13 =>          -- Load MAR with Stack Pointer address   
         IR_Load       <= '0';
@@ -1958,7 +1838,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '1';
---        fault         <= "0000";
 
       when S_RTI_14 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1977,7 +1856,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_RTI_15 =>  -- Load Program Counter with value stored in Stack     
         IR_Load       <= '0';
@@ -1996,7 +1874,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
 -- Branch Always
       when S_BRA_4 =>
@@ -2016,7 +1893,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BRA_5 =>
         IR_Load       <= '0';
@@ -2035,7 +1911,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BRA_6 =>
         IR_Load       <= '0';
@@ -2054,7 +1929,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BEQ_4 =>  -- Put PC onto MAR to provide address of Operand
         IR_Load       <= '0';
@@ -2073,7 +1947,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BEQ_5 =>           -- Prepare to receive Operand from memory
         IR_Load       <= '0';
@@ -2092,7 +1965,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BEQ_6 =>           -- Put Operand into PC (Leave Bus2=from_memory)
         IR_Load       <= '0';
@@ -2111,7 +1983,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BEQ_7 =>                   -- Z=0 so just increment PC
         IR_Load       <= '0';
@@ -2130,7 +2001,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BMI_4 =>  -- Put PC onto MAR to provide address of Operand
         IR_Load       <= '0';
@@ -2149,7 +2019,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BMI_5 =>           -- Prepare to receive Operand from memory
         IR_Load       <= '0';
@@ -2168,7 +2037,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BMI_6 =>           -- Put Operand into PC (Leave Bus2=from_memory)
         IR_Load       <= '0';
@@ -2187,7 +2055,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BMI_7 =>                   -- Z=0 so just increment PC
         IR_Load       <= '0';
@@ -2206,7 +2073,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BCS_4 =>  -- Put PC onto MAR to provide address of Operand
         IR_Load       <= '0';
@@ -2225,7 +2091,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BCS_5 =>           -- Prepare to receive Operand from memory
         IR_Load       <= '0';
@@ -2244,7 +2109,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BCS_6 =>           -- Put Operand into PC (Leave Bus2=from_memory)
         IR_Load       <= '0';
@@ -2263,7 +2127,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BCS_7 =>                   -- Z=0 so just increment PC
         IR_Load       <= '0';
@@ -2282,7 +2145,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BVS_4 =>  -- Put PC onto MAR to provide address of Operand
         IR_Load       <= '0';
@@ -2301,7 +2163,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BVS_5 =>           -- Prepare to receive Operand from memory
         IR_Load       <= '0';
@@ -2320,7 +2181,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BVS_6 =>           -- Put Operand into PC (Leave Bus2=from_memory)
         IR_Load       <= '0';
@@ -2339,7 +2199,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
 
       when S_BVS_7 =>                   -- Z=0 so just increment PC
         IR_Load       <= '0';
@@ -2358,26 +2217,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
---        fault         <= "0000";
-
-      when S_LD_ILL_OP_VEC_4 =>
-        IR_Load       <= '0';
-        MAR_Load      <= '0';
-        PC_Load       <= '1';
-        PC_Inc        <= '0';
-        A_Load        <= '0';
-        B_Load        <= '0';
-        ALU_Sel       <= "000";
-        CCR_Load      <= '0';
-        Bus1_Sel      <= "00";          -- "00"=PC,  "01"=A,    "10"=B
-        Bus2_Sel      <= "11";  -- "00"=ALU, "01"=Bus1, "10"=from_memory, "11"=Vector
-        write         <= '0';
-        cpu_exception <= '0';
-        illegal_op    <= '1';
-        SP_Inc        <= '0';
-        SP_Dec        <= '0';
-        SP_Enable     <= '0';
-        fault         <= "0000";
 
       when S_LD_INT_VEC_4 =>
         IR_Load       <= '0';
@@ -2397,8 +2236,6 @@ begin
         SP_Dec        <= '0';
         SP_Enable     <= '0';
         interrupt_clr <= '0';
---        internal_interrupt <= '1';
---        fault         <= "0000";
         
         
       when S_LD_INT_VEC_5 =>
@@ -2419,10 +2256,7 @@ begin
         SP_Dec        <= '0';
         SP_Enable     <= '0';
         interrupt_clr <= '1';
---        fault         <= "0000";
---        interrupt_clr <= '1';
-        
---        internal_interrupt <= '1';
+
 
       when S_ILL_OP_4 =>
         IR_Load       <= '0';
@@ -2441,49 +2275,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
-        fault         <= "0001";
-        
-      when S_CLI_4 =>
-        IR_Load       <= '0';
-        MAR_Load      <= '0';
-        PC_Load       <= '0';
-        PC_Inc        <= '0';
-        A_Load        <= '0';
-        B_Load        <= '0';
-        ALU_Sel       <= "000";
-        CCR_Load      <= '0';
-        Bus1_Sel      <= "00";          -- "00"=PC,  "01"=A,    "10"=B
-        Bus2_Sel      <= "10";  -- "00"=ALU, "01"=Bus1, "10"=from_memory, "11"=Vector
-        write         <= '0';
-        cpu_exception <= '0';
-        illegal_op    <= '0';
-        SP_Inc        <= '0';
-        SP_Dec        <= '0';
-        SP_Enable     <= '0';
---        fault         <= "0000";
-        interrupt_clr <= '1';
---        internal_interrupt <= '0';
-        
-      when S_CLI_5 =>
-        IR_Load       <= '0';
-        MAR_Load      <= '0';
-        PC_Load       <= '0';
-        PC_Inc        <= '0';
-        A_Load        <= '0';
-        B_Load        <= '0';
-        ALU_Sel       <= "000";
-        CCR_Load      <= '0';
-        Bus1_Sel      <= "00";          -- "00"=PC,  "01"=A,    "10"=B
-        Bus2_Sel      <= "10";  -- "00"=ALU, "01"=Bus1, "10"=from_memory, "11"=Vector
-        write         <= '0';
-        cpu_exception <= '0';
-        illegal_op    <= '0';
-        SP_Inc        <= '0';
-        SP_Dec        <= '0';
-        SP_Enable     <= '0';
---        fault         <= "0000";
-        interrupt_clr <= '0';
---        internal_interrupt <= '0';
 
       when others =>
         IR_Load       <= '0';
@@ -2502,8 +2293,6 @@ begin
         SP_Inc        <= '0';
         SP_Dec        <= '0';
         SP_Enable     <= '0';
-        interrupt_clr <= '0';
---        fault         <= "0000";
 
     end case;
   end process;

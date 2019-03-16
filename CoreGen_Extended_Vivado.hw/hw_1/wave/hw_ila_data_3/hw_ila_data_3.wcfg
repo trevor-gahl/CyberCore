@@ -11,11 +11,11 @@
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="1024001fs"></ZoomEndTime>
-      <Cursor1Time time="567000fs"></Cursor1Time>
+      <Cursor1Time time="126000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="312"></NameColumnWidth>
-      <ValueColumnWidth column_width="173"></ValueColumnWidth>
+      <ValueColumnWidth column_width="165"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="10" />
    <wave_markers>
@@ -24,7 +24,7 @@
       <obj_property name="ElementShortName">comp1/CPU1/control_unit1/current_state[6:0]</obj_property>
       <obj_property name="ObjectShortName">current_state[6:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
-      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="LABELRADIX">false</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject fp_name="comp1/CPU1/data_path1/PC" type="array">
@@ -83,9 +83,10 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="comp1/CPU1/control_unit1/interrupt_debug" type="array">
-      <obj_property name="ElementShortName">comp1/CPU1/control_unit1/interrupt_debug[3:0]</obj_property>
-      <obj_property name="ObjectShortName">interrupt_debug[3:0]</obj_property>
+   <wvobject fp_name="interrupt" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">interrupt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">interrupt[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>

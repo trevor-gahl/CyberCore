@@ -2,30 +2,31 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon Mar 11 17:29:38 2019
-# Process ID: 507496
+# Start of session at: Fri Mar 15 18:44:56 2019
+# Process ID: 189680
 # Current directory: C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/top.vds
 # Journal file: C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 338.129 ; gain = 98.027
 Command: synth_design -top top -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 506412 
+INFO: Helper process launched with PID 188220 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 516.164 ; gain = 94.777
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 515.965 ; gain = 95.785
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:21]
 INFO: [Synth 8-3491] module 'clock_div_prec' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/clock_div_prec.vhd:5' bound to instance 'clock_div' of component 'clock_div_prec' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:173]
 INFO: [Synth 8-638] synthesizing module 'clock_div_prec' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/clock_div_prec.vhd:12]
 INFO: [Synth 8-226] default block is never used [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/clock_div_prec.vhd:30]
 INFO: [Synth 8-256] done synthesizing module 'clock_div_prec' (1#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/clock_div_prec.vhd:12]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-507496-DESKTOP-TN1C6Q5/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'uart_clock_div' of component 'clk_wiz_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:178]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-507496-DESKTOP-TN1C6Q5/realtime/clk_wiz_0_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-189680-DESKTOP-TN1C6Q5/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'uart_clock_div' of component 'clk_wiz_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:178]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-189680-DESKTOP-TN1C6Q5/realtime/clk_wiz_0_stub.vhdl:14]
 INFO: [Synth 8-3491] module 'uart' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/new/uart.vhd:36' bound to instance 'uart_comp' of component 'uart' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:182]
 INFO: [Synth 8-638] synthesizing module 'uart' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/new/uart.vhd:56]
 	Parameter clks_per_bit bound to: 87 - type: integer 
@@ -65,22 +66,21 @@ INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trev
 INFO: [Synth 8-3491] module 'alu_core_1' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd:7' bound to instance 'ALU0' of component 'alu_core_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:70]
 INFO: [Synth 8-638] synthesizing module 'alu_core_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd:15]
 INFO: [Synth 8-256] done synthesizing module 'alu_core_1' (6#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd:15]
-INFO: [Synth 8-226] default block is never used [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:107]
-WARNING: [Synth 8-614] signal 'illegal_op' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:105]
-WARNING: [Synth 8-614] signal 'Fault_Vector' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:105]
-WARNING: [Synth 8-614] signal 'Interrupt_Vector' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:105]
+INFO: [Synth 8-226] default block is never used [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:106]
+WARNING: [Synth 8-614] signal 'illegal_op' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:104]
+WARNING: [Synth 8-614] signal 'Fault_Vector' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:104]
+WARNING: [Synth 8-614] signal 'Interrupt_Vector' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:104]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ALU0'. This will prevent further optimization [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:70]
 INFO: [Synth 8-256] done synthesizing module 'data_path_core_1' (7#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:31]
 INFO: [Synth 8-3491] module 'control_unit_core_1' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:7' bound to instance 'control_unit1' of component 'control_unit_core_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/cpu_core_1.vhd:122]
 INFO: [Synth 8-638] synthesizing module 'control_unit_core_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:35]
-INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:153]
-INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:153]
-INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:154]
-INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:154]
-INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:157]
-INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:157]
-WARNING: [Synth 8-614] signal 'fault' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:187]
-WARNING: [Synth 8-614] signal 'interrupt' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:187]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:142]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:142]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:144]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:144]
+INFO: [Synth 8-5534] Detected attribute (* keep = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:146]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:146]
+WARNING: [Synth 8-614] signal 'interrupt' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:175]
 INFO: [Synth 8-256] done synthesizing module 'control_unit_core_1' (8#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:35]
 INFO: [Synth 8-256] done synthesizing module 'cpu_core_1' (9#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/cpu_core_1.vhd:19]
 INFO: [Synth 8-3491] module 'memory_core_1' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:5' bound to instance 'MEMORY1' of component 'memory_core_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/computer_core_1.vhd:122]
@@ -94,15 +94,15 @@ INFO: [Synth 8-256] done synthesizing module 'rw_96x8_sync_core_1' (11#1) [C:/Us
 INFO: [Synth 8-3491] module 'stack_1' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/new/stack.vhd:5' bound to instance 'STACK' of component 'stack_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:101]
 INFO: [Synth 8-638] synthesizing module 'stack_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/new/stack.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'stack_1' (12#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/new/stack.vhd:13]
-INFO: [Synth 8-3491] module 'ila_1' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-507496-DESKTOP-TN1C6Q5/realtime/ila_1_stub.vhdl:5' bound to instance 'debug' of component 'ila_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:108]
-INFO: [Synth 8-638] synthesizing module 'ila_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-507496-DESKTOP-TN1C6Q5/realtime/ila_1_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'ila_1' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-189680-DESKTOP-TN1C6Q5/realtime/ila_1_stub.vhdl:5' bound to instance 'debug' of component 'ila_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'ila_1' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-189680-DESKTOP-TN1C6Q5/realtime/ila_1_stub.vhdl:16]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'STACK'. This will prevent further optimization [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:101]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'RW'. This will prevent further optimization [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:94]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ROM'. This will prevent further optimization [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:89]
 INFO: [Synth 8-256] done synthesizing module 'memory_core_1' (13#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/memory_core_1.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'computer_core_1' (14#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/computer_core_1.vhd:46]
-INFO: [Synth 8-3491] module 'ila_0' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-507496-DESKTOP-TN1C6Q5/realtime/ila_0_stub.vhdl:5' bound to instance 'debug' of component 'ila_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:227]
-INFO: [Synth 8-638] synthesizing module 'ila_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-507496-DESKTOP-TN1C6Q5/realtime/ila_0_stub.vhdl:26]
+INFO: [Synth 8-3491] module 'ila_0' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-189680-DESKTOP-TN1C6Q5/realtime/ila_0_stub.vhdl:5' bound to instance 'debug' of component 'ila_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:227]
+INFO: [Synth 8-638] synthesizing module 'ila_0' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/.Xil/Vivado-189680-DESKTOP-TN1C6Q5/realtime/ila_0_stub.vhdl:26]
 WARNING: [Synth 8-614] signal 'current_state' is read in the process but is not in the sensitivity list [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:356]
 INFO: [Synth 8-3491] module 'char_driver' declared at 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Shared_Work/char_driver.vhd:6' bound to instance 'display_out' of component 'char_driver' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:470]
 INFO: [Synth 8-638] synthesizing module 'char_driver' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Shared_Work/char_driver.vhd:16]
@@ -127,10 +127,6 @@ WARNING: [Synth 8-3848] Net exception_flag_3 in module/entity top does not have 
 WARNING: [Synth 8-3848] Net rx_read in module/entity top does not have driver. [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:153]
 WARNING: [Synth 8-3848] Net highs in module/entity top does not have driver. [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:139]
 INFO: [Synth 8-256] done synthesizing module 'top' (17#1) [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:21]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[3]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[2]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[1]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[0]
 WARNING: [Synth 8-3331] design uart has unconnected port clk
 WARNING: [Synth 8-3331] design top has unconnected port LED[7]
 WARNING: [Synth 8-3331] design top has unconnected port LED[6]
@@ -144,7 +140,7 @@ WARNING: [Synth 8-3331] design top has unconnected port SW[2]
 WARNING: [Synth 8-3331] design top has unconnected port SW[1]
 WARNING: [Synth 8-3331] design top has unconnected port SW[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 577.996 ; gain = 156.609
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 577.047 ; gain = 156.867
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -239,10 +235,10 @@ WARNING: [Synth 8-3295] tying undriven pin comp1:port_in_07[0] to constant 0 [C:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 577.996 ; gain = 156.609
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 577.047 ; gain = 156.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 577.996 ; gain = 156.609
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 577.047 ; gain = 156.867
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -261,24 +257,24 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/dont_touch.xdc]
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 918.148 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 917.617 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 918.148 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 917.617 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 918.148 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 918.148 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 917.617 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 917.617 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 918.148 ; gain = 496.762
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 917.617 ; gain = 497.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 918.148 ; gain = 496.762
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 917.617 ; gain = 497.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -289,7 +285,7 @@ Applied set_property DONT_TOUCH = true for uart_clock_div. (constraint file  aut
 Applied set_property DONT_TOUCH = true for debug. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for comp1/MEMORY1/debug. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 918.148 ; gain = 496.762
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 917.617 ; gain = 497.438
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'uart_tx'
 INFO: [Synth 8-5544] ROM "tx_serial" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -313,32 +309,11 @@ INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:203]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/data_path_core_1.vhd:202]
 INFO: [Synth 8-5544] ROM "Fault_Vector" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "IR_Load" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "PC_Load" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "PC_Inc" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "A_Load" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "B_Load" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "ALU_Sel" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "CCR_Load" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "Bus1_Sel" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "write" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "cpu_exception" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "SP_Inc" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "SP_Dec" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "SP_Enable" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "illegal_op" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "Interrupt_Vector" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'control_unit_core_1'
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "interrupt_clr" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -360,10 +335,108 @@ WARNING: [Synth 8-327] inferring latch for variable 'buffer_array_reg[6]' [C:/Us
 WARNING: [Synth 8-327] inferring latch for variable 'buffer_array_reg[7]' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/new/buffer.vhd:54]
 WARNING: [Synth 8-327] inferring latch for variable 'ALU_Result_reg' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd:27]
 WARNING: [Synth 8-327] inferring latch for variable 'NZVC_reg' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/alu_core_1.vhd:29]
-WARNING: [Synth 8-327] inferring latch for variable 'fault_reg' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:2380]
-WARNING: [Synth 8-327] inferring latch for variable 'interrupt_clr_reg' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:1671]
+INFO: [Synth 8-6159] Found Keep on FSM register 'current_state_reg' in module 'control_unit_core_1', re-encoding will not be performed
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                          0000000 |                          0000000
+                iSTATE84 |                          0110101 |                          0110101
+                iSTATE85 |                          0110110 |                          0110110
+                iSTATE86 |                          0110111 |                          0110111
+                iSTATE87 |                          0111000 |                          0111000
+                iSTATE88 |                          0111001 |                          0111001
+                iSTATE89 |                          0111010 |                          0111010
+                iSTATE90 |                          1011011 |                          1011011
+                iSTATE91 |                          1011100 |                          1011100
+                 iSTATE1 |                          0000001 |                          0000001
+                 iSTATE2 |                          0000010 |                          0000010
+                 iSTATE3 |                          0000011 |                          0000011
+                 iSTATE4 |                          0000100 |                          0000100
+                 iSTATE5 |                          0000101 |                          0000101
+                 iSTATE6 |                          0000110 |                          0000110
+                 iSTATE7 |                          0000111 |                          0000111
+                 iSTATE8 |                          0001000 |                          0001000
+                 iSTATE9 |                          0001001 |                          0001001
+                iSTATE10 |                          0001010 |                          0001010
+                iSTATE11 |                          0001011 |                          0001011
+                iSTATE12 |                          0001100 |                          0001100
+                iSTATE13 |                          0001101 |                          0001101
+                iSTATE14 |                          0001110 |                          0001110
+                iSTATE15 |                          0001111 |                          0001111
+                iSTATE16 |                          0010000 |                          0010000
+                iSTATE17 |                          0010001 |                          0010001
+                iSTATE18 |                          0010010 |                          0010010
+                iSTATE19 |                          0010011 |                          0010011
+                iSTATE20 |                          0010100 |                          0010100
+                iSTATE21 |                          0010101 |                          0010101
+                iSTATE22 |                          0010110 |                          0010110
+                iSTATE23 |                          0010111 |                          0010111
+                iSTATE24 |                          0011000 |                          0011000
+                iSTATE25 |                          0011001 |                          0011001
+                iSTATE26 |                          0011010 |                          0011010
+                iSTATE46 |                          0011011 |                          0011011
+                iSTATE47 |                          0011100 |                          0011100
+                iSTATE48 |                          0011101 |                          0011101
+                iSTATE49 |                          0011110 |                          0011110
+                iSTATE50 |                          0011111 |                          0011111
+                iSTATE51 |                          0100000 |                          0100000
+                iSTATE53 |                          0100001 |                          0100001
+                iSTATE52 |                          0100010 |                          0100010
+                iSTATE27 |                          1000111 |                          1000111
+                iSTATE28 |                          1001000 |                          1001000
+                iSTATE29 |                          1001001 |                          1001001
+                iSTATE30 |                          1001010 |                          1001010
+                iSTATE31 |                          1001011 |                          1001011
+                iSTATE32 |                          1001100 |                          1001100
+                iSTATE33 |                          1001101 |                          1001101
+                iSTATE34 |                          1001110 |                          1001110
+                iSTATE35 |                          1001111 |                          1001111
+                iSTATE36 |                          1010000 |                          1010000
+                iSTATE37 |                          1010001 |                          1010001
+                iSTATE38 |                          1010010 |                          1010010
+                iSTATE39 |                          1010011 |                          1010011
+                iSTATE40 |                          1010100 |                          1010100
+                iSTATE41 |                          1010101 |                          1010101
+                iSTATE42 |                          1010110 |                          1010110
+                iSTATE43 |                          1010111 |                          1010111
+                iSTATE44 |                          1011000 |                          1011000
+                iSTATE45 |                          1011001 |                          1011001
+                iSTATE54 |                          0100011 |                          0100011
+                iSTATE55 |                          0100100 |                          0100100
+                iSTATE56 |                          0100101 |                          0100101
+                iSTATE57 |                          0100110 |                          0100110
+                iSTATE58 |                          0100111 |                          0100111
+                iSTATE59 |                          0101000 |                          0101000
+                iSTATE60 |                          0101001 |                          0101001
+                iSTATE61 |                          0101010 |                          0101010
+                iSTATE62 |                          0101011 |                          0101011
+                iSTATE63 |                          0101100 |                          0101100
+                iSTATE64 |                          0101101 |                          0101101
+                iSTATE65 |                          0101110 |                          0101110
+                iSTATE66 |                          0101111 |                          0101111
+                iSTATE67 |                          0110000 |                          0110000
+                iSTATE68 |                          0110001 |                          0110001
+                iSTATE69 |                          0110010 |                          0110010
+                iSTATE70 |                          0110011 |                          0110011
+                iSTATE71 |                          0110100 |                          0110100
+                iSTATE72 |                          0111011 |                          0111011
+                iSTATE73 |                          0111100 |                          0111100
+                iSTATE74 |                          0111101 |                          0111101
+                iSTATE75 |                          0111110 |                          0111110
+                iSTATE76 |                          0111111 |                          0111111
+                iSTATE77 |                          1000000 |                          1000000
+                iSTATE78 |                          1000001 |                          1000001
+                iSTATE79 |                          1000010 |                          1000010
+                iSTATE80 |                          1000011 |                          1000011
+                iSTATE81 |                          1000100 |                          1000100
+                iSTATE82 |                          1000101 |                          1000101
+                iSTATE83 |                          1000110 |                          1000110
+                iSTATE92 |                          1011010 |                          1011010
+*
+---------------------------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'interrupt_clr_reg' [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/control_unit_core_1.vhd:2238]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 918.148 ; gain = 496.762
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 917.617 ; gain = 497.438
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -385,7 +458,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	               32 Bit    Registers := 1     
 	                8 Bit    Registers := 37    
-	                7 Bit    Registers := 3     
+	                7 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 4     
 	                1 Bit    Registers := 10    
@@ -399,28 +472,28 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit        Muxes := 8     
 	   4 Input      8 Bit        Muxes := 2     
 	  96 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 7     
+	   2 Input      7 Bit        Muxes := 9     
 	   6 Input      7 Bit        Muxes := 1     
-	   9 Input      7 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 2     
+	  94 Input      7 Bit        Muxes := 1     
 	  16 Input      7 Bit        Muxes := 1     
-	   4 Input      7 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 3     
-	   3 Input      6 Bit        Muxes := 1     
+	   8 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 2     
 	   7 Input      4 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 8     
 	   5 Input      3 Bit        Muxes := 1     
 	   8 Input      3 Bit        Muxes := 1     
-	  97 Input      3 Bit        Muxes := 1     
+	  94 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 3     
 	   3 Input      2 Bit        Muxes := 1     
-	  97 Input      2 Bit        Muxes := 1     
+	  94 Input      2 Bit        Muxes := 1     
 	   4 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 10    
 	   2 Input      1 Bit        Muxes := 20    
 	   6 Input      1 Bit        Muxes := 2     
 	   8 Input      1 Bit        Muxes := 8     
-	  97 Input      1 Bit        Muxes := 14    
+	  94 Input      1 Bit        Muxes := 12    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -514,23 +587,21 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 3     
 	   4 Input      8 Bit        Muxes := 2     
-	   2 Input      7 Bit        Muxes := 1     
+	   4 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
 Module control_unit_core_1 
 Detailed RTL Component Info : 
-+---Registers : 
-	                7 Bit    Registers := 1     
 +---Muxes : 
-	   9 Input      7 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 5     
+	  94 Input      7 Bit        Muxes := 1     
 	  16 Input      7 Bit        Muxes := 1     
-	   3 Input      6 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 2     
-	  97 Input      3 Bit        Muxes := 1     
-	  97 Input      2 Bit        Muxes := 1     
-	  97 Input      1 Bit        Muxes := 14    
+	   2 Input      7 Bit        Muxes := 8     
+	   8 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	  94 Input      3 Bit        Muxes := 1     
+	  94 Input      2 Bit        Muxes := 1     
+	  94 Input      1 Bit        Muxes := 12    
 Module rom_128x8_sync_core_1 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -581,11 +652,6 @@ INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "NZVC" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5587] ROM size for "p_0_out" is below threshold of ROM address width. It will be mapped to LUTs
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[3]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[2]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[1]
-WARNING: [Synth 8-3331] design data_path_core_1 has unconnected port interrupt[0]
 WARNING: [Synth 8-3331] design uart has unconnected port clk
 WARNING: [Synth 8-3331] design top has unconnected port LED[7]
 WARNING: [Synth 8-3331] design top has unconnected port LED[6]
@@ -688,14 +754,10 @@ WARNING: [Synth 8-3332] Sequential element (ALU_Result_reg[2]) is unused and wil
 WARNING: [Synth 8-3332] Sequential element (ALU_Result_reg[1]) is unused and will be removed from module alu_core_1.
 WARNING: [Synth 8-3332] Sequential element (ALU_Result_reg[0]) is unused and will be removed from module alu_core_1.
 WARNING: [Synth 8-3332] Sequential element (NZVC_reg[3]) is unused and will be removed from module alu_core_1.
-INFO: [Synth 8-3886] merging instance 'comp1/CPU1/control_unit1/fault_reg[1]' (LD) to 'comp1/CPU1/control_unit1/fault_reg[2]'
-INFO: [Synth 8-3886] merging instance 'comp1/CPU1/control_unit1/fault_reg[2]' (LD) to 'comp1/CPU1/control_unit1/fault_reg[3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (comp1/\CPU1/control_unit1 /\fault_reg[3] )
-WARNING: [Synth 8-3332] Sequential element (fault_reg[3]) is unused and will be removed from module control_unit_core_1.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (next_state_reg_C)
 WARNING: [Synth 8-3332] Sequential element (next_state_reg_C) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 918.148 ; gain = 496.762
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 917.617 ; gain = 497.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -707,8 +769,10 @@ ROM:
 +--------------------+------------+---------------+----------------+
 |control_unit_core_1 | MAR_Load   | 128x1         | LUT            | 
 |control_unit_core_1 | Bus2_Sel   | 128x2         | LUT            | 
+|control_unit_core_1 | SP_Enable  | 128x1         | LUT            | 
 |control_unit_core_1 | MAR_Load   | 128x1         | LUT            | 
 |control_unit_core_1 | Bus2_Sel   | 128x2         | LUT            | 
+|control_unit_core_1 | SP_Enable  | 128x1         | LUT            | 
 +--------------------+------------+---------------+----------------+
 
 
@@ -745,13 +809,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'uart_clock_div/clk_out1' to pin 'uart_clock_div/bbstub_clk_out1/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 918.148 ; gain = 496.762
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 917.617 ; gain = 497.438
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -790,7 +854,7 @@ WARNING: [Synth 8-3332] Sequential element (uart_transmit/FSM_sequential_current
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (uart_comp/\uart_transmit/tx_serial_reg )
 INFO: [Synth 8-6837] The timing for the instance comp1/MEMORY1/RW/RW_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -813,6 +877,10 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin fault_inferred:in0[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin fault_inferred:in0[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin fault_inferred:in0[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin fault_inferred:in0[0] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin comp1:port_in_00[7] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin comp1:port_in_00[6] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin comp1:port_in_00[5] to constant 0
@@ -823,7 +891,7 @@ WARNING: [Synth 8-3295] tying undriven pin comp1:port_in_00[1] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin comp1:port_in_00[0] to constant 0
 WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.srcs/sources_1/imports/Extended_Format_Testing/top.vhd:352]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -836,7 +904,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -848,25 +916,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -892,19 +960,19 @@ Report Cell Usage:
 |5     |CARRY4           |    13|
 |6     |LUT1             |    19|
 |7     |LUT2             |    62|
-|8     |LUT3             |    44|
-|9     |LUT4             |    68|
-|10    |LUT5             |    77|
-|11    |LUT6             |   188|
-|12    |MUXF7            |    54|
-|13    |MUXF8            |    15|
+|8     |LUT3             |    42|
+|9     |LUT4             |    65|
+|10    |LUT5             |    72|
+|11    |LUT6             |   191|
+|12    |MUXF7            |    64|
+|13    |MUXF8            |    17|
 |14    |RAM16X1S         |     8|
 |15    |RAMB18E1         |     1|
 |16    |FDCE             |   212|
 |17    |FDPE             |     4|
 |18    |FDRE             |   110|
 |19    |FDSE             |     7|
-|20    |LD               |     2|
+|20    |LD               |     1|
 |21    |LDC              |     3|
 |22    |LDP              |     1|
 |23    |IBUF             |     2|
@@ -916,49 +984,49 @@ Report Instance Areas:
 +------+--------------------+----------------------+------+
 |      |Instance            |Module                |Cells |
 +------+--------------------+----------------------+------+
-|1     |top                 |                      |   912|
+|1     |top                 |                      |   916|
 |2     |  uart_comp         |uart                  |   153|
 |3     |    uart_receive    |uart_rx               |    65|
-|4     |  comp1             |computer_core_1       |   647|
-|5     |    MEMORY1         |memory_core_1         |   290|
+|4     |  comp1             |computer_core_1       |   651|
+|5     |    MEMORY1         |memory_core_1         |   294|
 |6     |      ROM           |rom_128x8_sync_core_1 |    24|
 |7     |      RW            |rw_96x8_sync_core_1   |     3|
 |8     |      STACK         |stack_1               |    27|
 |9     |    CPU1            |cpu_core_1            |   357|
-|10    |      data_path1    |data_path_core_1      |   218|
+|10    |      data_path1    |data_path_core_1      |   224|
 |11    |        ALU0        |alu_core_1            |   102|
-|12    |      control_unit1 |control_unit_core_1   |   139|
+|12    |      control_unit1 |control_unit_core_1   |   133|
 |13    |  display_out       |char_driver           |    79|
 +------+--------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 124 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 931.660 ; gain = 170.121
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 931.660 ; gain = 510.273
+Synthesis finished with 0 errors, 0 critical warnings and 122 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 928.609 ; gain = 167.859
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 928.609 ; gain = 508.430
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 97 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 108 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 931.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 928.609 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 14 instances were transformed.
-  LD => LDCE: 2 instances
+  A total of 13 instances were transformed.
+  LD => LDCE: 1 instances
   LDC => LDCE: 3 instances
   LDP => LDPE: 1 instances
   RAM16X1S => RAM32X1S (RAMS32): 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-169 Infos, 243 Warnings, 0 Critical Warnings and 0 Errors encountered.
+145 Infos, 236 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 931.660 ; gain = 512.008
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 928.609 ; gain = 510.156
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 931.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 928.609 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Trevor/Documents/CyberCore/CoreGen_Extended_Vivado.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 11 17:30:28 2019...
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 15 18:45:55 2019...

@@ -287,20 +287,20 @@
                                 "portIndex": 2,
                                 "nets": [
                                     {
-                                        "name": "interrupt",
+                                        "name": "interrupt_1",
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "interrupt[3]"
+                                                "name": "interrupt_1[3]"
                                             },
                                             {
-                                                "name": "interrupt[2]"
+                                                "name": "interrupt_1[2]"
                                             },
                                             {
-                                                "name": "interrupt[1]"
+                                                "name": "interrupt_1[1]"
                                             },
                                             {
-                                                "name": "interrupt[0]"
+                                                "name": "interrupt_1[0]"
                                             }
                                         ]
                                     }
@@ -701,7 +701,7 @@
                             "slave_index": 2,
                             "bscan_switch_index": 0
                         },
-                        "uuid": "23E7D65A79BC59F7BC47406C1714DFAE",
+                        "uuid": "23e7d65a79bc59f7bc47406c1714dfae",
                         "pins": [
                             {
                                 "name": "probe0",
@@ -710,6 +710,27 @@
                                 "direction": "IN",
                                 "isVector": true,
                                 "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "interrupt",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "interrupt[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe0",
+                                "id": 19,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 1,
                                 "rightIndex": 3,
                                 "portIndex": 0,
                                 "nets": [
@@ -725,9 +746,6 @@
                                             },
                                             {
                                                 "name": "comp1/CPU1/control_unit1/interrupt_debug[1]"
-                                            },
-                                            {
-                                                "name": "comp1/CPU1/control_unit1/interrupt_debug[0]"
                                             }
                                         ]
                                     }
@@ -735,7 +753,7 @@
                             },
                             {
                                 "name": "probe1",
-                                "id": 19,
+                                "id": 20,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -748,25 +766,32 @@
                                         "isBus": true,
                                         "subnets": [
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[6]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[6]",
+                                                "parentNetId": 111
                                             },
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[5]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[5]",
+                                                "parentNetId": 112
                                             },
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[4]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[4]",
+                                                "parentNetId": 113
                                             },
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[3]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[3]",
+                                                "parentNetId": 114
                                             },
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[2]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[2]",
+                                                "parentNetId": 115
                                             },
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[1]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[1]",
+                                                "parentNetId": 116
                                             },
                                             {
-                                                "name": "comp1/CPU1/control_unit1/current_state[0]"
+                                                "name": "comp1/CPU1/control_unit1/current_state[0]",
+                                                "parentNetId": 117
                                             }
                                         ]
                                     }
@@ -774,7 +799,7 @@
                             },
                             {
                                 "name": "probe2",
-                                "id": 20,
+                                "id": 21,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -804,7 +829,7 @@
                             },
                             {
                                 "name": "probe3",
-                                "id": 21,
+                                "id": 22,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -846,7 +871,7 @@
                             },
                             {
                                 "name": "probe4",
-                                "id": 22,
+                                "id": 23,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -888,7 +913,7 @@
                             },
                             {
                                 "name": "probe5",
-                                "id": 23,
+                                "id": 24,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -930,7 +955,7 @@
                             },
                             {
                                 "name": "probe6",
-                                "id": 24,
+                                "id": 25,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -972,7 +997,7 @@
                             },
                             {
                                 "name": "probe7",
-                                "id": 25,
+                                "id": 26,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -1014,7 +1039,7 @@
                             },
                             {
                                 "name": "probe8",
-                                "id": 26,
+                                "id": 27,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -1056,7 +1081,7 @@
                             },
                             {
                                 "name": "probe9",
-                                "id": 27,
+                                "id": 28,
                                 "type": "DATA_TRIGGER",
                                 "direction": "IN",
                                 "isVector": true,
@@ -1093,6 +1118,2717 @@
                                                 "name": "comp1/CPU1/data_path1/BUS1[0]"
                                             }
                                         ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "parent_nets": [
+                    {
+                        "id": 111,
+                        "name": "comp1/CPU1/control_unit1/current_state[6]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[6]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 112,
+                        "name": "comp1/CPU1/control_unit1/current_state[5]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[5]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 113,
+                        "name": "comp1/CPU1/control_unit1/current_state[4]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[4]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 114,
+                        "name": "comp1/CPU1/control_unit1/current_state[3]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[3]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 115,
+                        "name": "comp1/CPU1/control_unit1/current_state[2]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[2]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 116,
+                        "name": "comp1/CPU1/control_unit1/current_state[1]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[1]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 117,
+                        "name": "comp1/CPU1/control_unit1/current_state[0]",
+                        "state_reg": [
+                            {
+                                "name": "comp1/CPU1/control_unit1/current_state_reg[0]",
+                                "states": [
+                                    {
+                                        "name": "iSTATE",
+                                        "val": "0000000"
+                                    },
+                                    {
+                                        "name": "iSTATE0",
+                                        "val": "1011101"
+                                    },
+                                    {
+                                        "name": "iSTATE1",
+                                        "val": "0000001"
+                                    },
+                                    {
+                                        "name": "iSTATE2",
+                                        "val": "0000010"
+                                    },
+                                    {
+                                        "name": "iSTATE3",
+                                        "val": "0000011"
+                                    },
+                                    {
+                                        "name": "iSTATE4",
+                                        "val": "0000100"
+                                    },
+                                    {
+                                        "name": "iSTATE5",
+                                        "val": "0000101"
+                                    },
+                                    {
+                                        "name": "iSTATE6",
+                                        "val": "0000110"
+                                    },
+                                    {
+                                        "name": "iSTATE7",
+                                        "val": "0000111"
+                                    },
+                                    {
+                                        "name": "iSTATE8",
+                                        "val": "0001000"
+                                    },
+                                    {
+                                        "name": "iSTATE9",
+                                        "val": "0001001"
+                                    },
+                                    {
+                                        "name": "iSTATE10",
+                                        "val": "0001010"
+                                    },
+                                    {
+                                        "name": "iSTATE11",
+                                        "val": "0001011"
+                                    },
+                                    {
+                                        "name": "iSTATE12",
+                                        "val": "0001100"
+                                    },
+                                    {
+                                        "name": "iSTATE13",
+                                        "val": "0001101"
+                                    },
+                                    {
+                                        "name": "iSTATE14",
+                                        "val": "0001110"
+                                    },
+                                    {
+                                        "name": "iSTATE15",
+                                        "val": "0001111"
+                                    },
+                                    {
+                                        "name": "iSTATE16",
+                                        "val": "0010000"
+                                    },
+                                    {
+                                        "name": "iSTATE17",
+                                        "val": "0010001"
+                                    },
+                                    {
+                                        "name": "iSTATE18",
+                                        "val": "0010010"
+                                    },
+                                    {
+                                        "name": "iSTATE19",
+                                        "val": "0010011"
+                                    },
+                                    {
+                                        "name": "iSTATE20",
+                                        "val": "0010100"
+                                    },
+                                    {
+                                        "name": "iSTATE21",
+                                        "val": "0010101"
+                                    },
+                                    {
+                                        "name": "iSTATE22",
+                                        "val": "0010110"
+                                    },
+                                    {
+                                        "name": "iSTATE23",
+                                        "val": "0010111"
+                                    },
+                                    {
+                                        "name": "iSTATE24",
+                                        "val": "0011000"
+                                    },
+                                    {
+                                        "name": "iSTATE25",
+                                        "val": "0011001"
+                                    },
+                                    {
+                                        "name": "iSTATE26",
+                                        "val": "0011010"
+                                    },
+                                    {
+                                        "name": "iSTATE27",
+                                        "val": "1000111"
+                                    },
+                                    {
+                                        "name": "iSTATE28",
+                                        "val": "1001000"
+                                    },
+                                    {
+                                        "name": "iSTATE29",
+                                        "val": "1001001"
+                                    },
+                                    {
+                                        "name": "iSTATE30",
+                                        "val": "1001010"
+                                    },
+                                    {
+                                        "name": "iSTATE31",
+                                        "val": "1001011"
+                                    },
+                                    {
+                                        "name": "iSTATE32",
+                                        "val": "1001100"
+                                    },
+                                    {
+                                        "name": "iSTATE33",
+                                        "val": "1001101"
+                                    },
+                                    {
+                                        "name": "iSTATE34",
+                                        "val": "1001110"
+                                    },
+                                    {
+                                        "name": "iSTATE35",
+                                        "val": "1001111"
+                                    },
+                                    {
+                                        "name": "iSTATE36",
+                                        "val": "1010000"
+                                    },
+                                    {
+                                        "name": "iSTATE37",
+                                        "val": "1010001"
+                                    },
+                                    {
+                                        "name": "iSTATE38",
+                                        "val": "1010010"
+                                    },
+                                    {
+                                        "name": "iSTATE39",
+                                        "val": "1010011"
+                                    },
+                                    {
+                                        "name": "iSTATE40",
+                                        "val": "1010100"
+                                    },
+                                    {
+                                        "name": "iSTATE41",
+                                        "val": "1010101"
+                                    },
+                                    {
+                                        "name": "iSTATE42",
+                                        "val": "1010110"
+                                    },
+                                    {
+                                        "name": "iSTATE43",
+                                        "val": "1010111"
+                                    },
+                                    {
+                                        "name": "iSTATE44",
+                                        "val": "1011000"
+                                    },
+                                    {
+                                        "name": "iSTATE45",
+                                        "val": "1011001"
+                                    },
+                                    {
+                                        "name": "iSTATE46",
+                                        "val": "0011011"
+                                    },
+                                    {
+                                        "name": "iSTATE47",
+                                        "val": "0011100"
+                                    },
+                                    {
+                                        "name": "iSTATE48",
+                                        "val": "0011101"
+                                    },
+                                    {
+                                        "name": "iSTATE49",
+                                        "val": "0011110"
+                                    },
+                                    {
+                                        "name": "iSTATE50",
+                                        "val": "0011111"
+                                    },
+                                    {
+                                        "name": "iSTATE51",
+                                        "val": "0100000"
+                                    },
+                                    {
+                                        "name": "iSTATE52",
+                                        "val": "0100010"
+                                    },
+                                    {
+                                        "name": "iSTATE53",
+                                        "val": "0100001"
+                                    },
+                                    {
+                                        "name": "iSTATE54",
+                                        "val": "0100011"
+                                    },
+                                    {
+                                        "name": "iSTATE55",
+                                        "val": "0100100"
+                                    },
+                                    {
+                                        "name": "iSTATE56",
+                                        "val": "0100101"
+                                    },
+                                    {
+                                        "name": "iSTATE57",
+                                        "val": "0100110"
+                                    },
+                                    {
+                                        "name": "iSTATE58",
+                                        "val": "0100111"
+                                    },
+                                    {
+                                        "name": "iSTATE59",
+                                        "val": "0101000"
+                                    },
+                                    {
+                                        "name": "iSTATE60",
+                                        "val": "0101001"
+                                    },
+                                    {
+                                        "name": "iSTATE61",
+                                        "val": "0101010"
+                                    },
+                                    {
+                                        "name": "iSTATE62",
+                                        "val": "0101011"
+                                    },
+                                    {
+                                        "name": "iSTATE63",
+                                        "val": "0101100"
+                                    },
+                                    {
+                                        "name": "iSTATE64",
+                                        "val": "0101101"
+                                    },
+                                    {
+                                        "name": "iSTATE65",
+                                        "val": "0101110"
+                                    },
+                                    {
+                                        "name": "iSTATE66",
+                                        "val": "0101111"
+                                    },
+                                    {
+                                        "name": "iSTATE67",
+                                        "val": "0110000"
+                                    },
+                                    {
+                                        "name": "iSTATE68",
+                                        "val": "0110001"
+                                    },
+                                    {
+                                        "name": "iSTATE69",
+                                        "val": "0110010"
+                                    },
+                                    {
+                                        "name": "iSTATE70",
+                                        "val": "0110011"
+                                    },
+                                    {
+                                        "name": "iSTATE71",
+                                        "val": "0110100"
+                                    },
+                                    {
+                                        "name": "iSTATE72",
+                                        "val": "0111011"
+                                    },
+                                    {
+                                        "name": "iSTATE73",
+                                        "val": "0111100"
+                                    },
+                                    {
+                                        "name": "iSTATE74",
+                                        "val": "0111101"
+                                    },
+                                    {
+                                        "name": "iSTATE75",
+                                        "val": "0111110"
+                                    },
+                                    {
+                                        "name": "iSTATE76",
+                                        "val": "0111111"
+                                    },
+                                    {
+                                        "name": "iSTATE77",
+                                        "val": "1000000"
+                                    },
+                                    {
+                                        "name": "iSTATE78",
+                                        "val": "1000001"
+                                    },
+                                    {
+                                        "name": "iSTATE79",
+                                        "val": "1000010"
+                                    },
+                                    {
+                                        "name": "iSTATE80",
+                                        "val": "1000011"
+                                    },
+                                    {
+                                        "name": "iSTATE81",
+                                        "val": "1000100"
+                                    },
+                                    {
+                                        "name": "iSTATE82",
+                                        "val": "1000101"
+                                    },
+                                    {
+                                        "name": "iSTATE83",
+                                        "val": "1000110"
+                                    },
+                                    {
+                                        "name": "iSTATE84",
+                                        "val": "0110101"
+                                    },
+                                    {
+                                        "name": "iSTATE85",
+                                        "val": "0110110"
+                                    },
+                                    {
+                                        "name": "iSTATE86",
+                                        "val": "0110111"
+                                    },
+                                    {
+                                        "name": "iSTATE87",
+                                        "val": "0111000"
+                                    },
+                                    {
+                                        "name": "iSTATE88",
+                                        "val": "0111001"
+                                    },
+                                    {
+                                        "name": "iSTATE89",
+                                        "val": "0111010"
+                                    },
+                                    {
+                                        "name": "iSTATE90",
+                                        "val": "1011011"
+                                    },
+                                    {
+                                        "name": "iSTATE91",
+                                        "val": "1011100"
+                                    },
+                                    {
+                                        "name": "iSTATE92",
+                                        "val": "1011010"
                                     }
                                 ]
                             }

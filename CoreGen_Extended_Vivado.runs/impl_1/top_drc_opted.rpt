@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon Mar 11 17:33:16 2019
+| Date         : Fri Mar 15 18:48:10 2019
 | Host         : DESKTOP-TN1C6Q5 running 64-bit major release  (build 9200)
 | Command      : report_drc -file top_drc_opted.rpt -pb top_drc_opted.pb -rpx top_drc_opted.rpx
 | Design       : top
@@ -111,7 +111,7 @@ Related violations: <none>
 
 REQP-1840#15 Warning
 RAMB18 async control check  
-The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 comp1/MEMORY1/RW/RW_reg has an input control pin comp1/MEMORY1/RW/RW_reg/ENARDEN (net: comp1/MEMORY1/RW/p_0_in6_out) which is driven by a register (comp1/CPU1/control_unit1/current_state_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#16 Warning

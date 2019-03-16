@@ -43,7 +43,7 @@ architecture data_path_arch of data_path_core_1 is
   signal BUS1             : std_logic_vector(7 downto 0);
   signal A                : std_logic_vector(7 downto 0);
   signal B                : std_logic_vector(7 downto 0);
-  signal PC               : std_logic_vector(7 downto 0);
+  signal PC               : std_logic_vector(7 downto 0):=x"00";
   signal MAR              : std_logic_vector(7 downto 0);
   signal IR_Sig           : std_logic_vector(7 downto 0);
   signal CCR              : std_logic_vector(3 downto 0);
@@ -84,12 +84,11 @@ begin
 
   INTERRUPT_VECTOR0 : process (interrupt)
   begin
---    case (interrupt) is
---      when "0001" => Interrupt_Vector <= x"78";
---      when "0010" => Interrupt_Vector <= x"52";
---      when others => 
-      Interrupt_Vector <= x"78";
---    end case;
+    case (interrupt) is
+      when "0001" => Interrupt_Vector <= x"78";
+      when "0010" => Interrupt_Vector <= x"52";
+      when others => Interrupt_Vector <= x"00";
+    end case;
   end process;
 
   MUX_BUS1 : process (Bus1_Sel, PC, A, B)

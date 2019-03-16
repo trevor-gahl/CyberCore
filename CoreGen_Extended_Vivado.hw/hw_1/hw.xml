@@ -44,7 +44,7 @@
     <Object name="comp1/CPU1/data_path1/SP[7:0]" gui_info=""/>
     <Object name="comp1/MEMORY1/address[7:0]" gui_info=""/>
     <Object name="exception_flag_1" gui_info=""/>
-    <Object name="interrupt[3:0]" gui_info=""/>
+    <Object name="interrupt[3:0]" gui_info="Trigger Setup=0"/>
     <Object name="interrupt_clr" gui_info=""/>
     <Object name="port_out_temp01[7:0]" gui_info=""/>
     <Object name="probe1[7:0]" gui_info="Trigger Setup=0"/>
@@ -1337,7 +1337,7 @@
         <net name="&lt;const0>_9"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq3&apos;hX"/>
         <Option Id="COMPARE_VALUE.0" value="eq3&apos;hX"/>
@@ -1500,7 +1500,7 @@
         <net name="buff5[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq8&apos;hXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq8&apos;hXX"/>
@@ -1629,11 +1629,11 @@
         <net name="buff_ready"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq7&apos;hXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq7&apos;hXX"/>
-        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_AS_ENUM" value="0"/>
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
@@ -1645,6 +1645,100 @@
         <Option Id="SOURCE" value="netlist"/>
         <Option Id="TRIGGER_COMPARE_VALUE" value="eq7&apos;hXX"/>
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
+        <Option Id="ENUM.iSTATE" value="eq7&apos;b0000000"/>
+        <Option Id="ENUM.iSTATE0" value="eq7&apos;b1011101"/>
+        <Option Id="ENUM.iSTATE1" value="eq7&apos;b0000001"/>
+        <Option Id="ENUM.iSTATE10" value="eq7&apos;b0001010"/>
+        <Option Id="ENUM.iSTATE11" value="eq7&apos;b0001011"/>
+        <Option Id="ENUM.iSTATE12" value="eq7&apos;b0001100"/>
+        <Option Id="ENUM.iSTATE13" value="eq7&apos;b0001101"/>
+        <Option Id="ENUM.iSTATE14" value="eq7&apos;b0001110"/>
+        <Option Id="ENUM.iSTATE15" value="eq7&apos;b0001111"/>
+        <Option Id="ENUM.iSTATE16" value="eq7&apos;b0010000"/>
+        <Option Id="ENUM.iSTATE17" value="eq7&apos;b0010001"/>
+        <Option Id="ENUM.iSTATE18" value="eq7&apos;b0010010"/>
+        <Option Id="ENUM.iSTATE19" value="eq7&apos;b0010011"/>
+        <Option Id="ENUM.iSTATE2" value="eq7&apos;b0000010"/>
+        <Option Id="ENUM.iSTATE20" value="eq7&apos;b0010100"/>
+        <Option Id="ENUM.iSTATE21" value="eq7&apos;b0010101"/>
+        <Option Id="ENUM.iSTATE22" value="eq7&apos;b0010110"/>
+        <Option Id="ENUM.iSTATE23" value="eq7&apos;b0010111"/>
+        <Option Id="ENUM.iSTATE24" value="eq7&apos;b0011000"/>
+        <Option Id="ENUM.iSTATE25" value="eq7&apos;b0011001"/>
+        <Option Id="ENUM.iSTATE26" value="eq7&apos;b0011010"/>
+        <Option Id="ENUM.iSTATE27" value="eq7&apos;b1000111"/>
+        <Option Id="ENUM.iSTATE28" value="eq7&apos;b1001000"/>
+        <Option Id="ENUM.iSTATE29" value="eq7&apos;b1001001"/>
+        <Option Id="ENUM.iSTATE3" value="eq7&apos;b0000011"/>
+        <Option Id="ENUM.iSTATE30" value="eq7&apos;b1001010"/>
+        <Option Id="ENUM.iSTATE31" value="eq7&apos;b1001011"/>
+        <Option Id="ENUM.iSTATE32" value="eq7&apos;b1001100"/>
+        <Option Id="ENUM.iSTATE33" value="eq7&apos;b1001101"/>
+        <Option Id="ENUM.iSTATE34" value="eq7&apos;b1001110"/>
+        <Option Id="ENUM.iSTATE35" value="eq7&apos;b1001111"/>
+        <Option Id="ENUM.iSTATE36" value="eq7&apos;b1010000"/>
+        <Option Id="ENUM.iSTATE37" value="eq7&apos;b1010001"/>
+        <Option Id="ENUM.iSTATE38" value="eq7&apos;b1010010"/>
+        <Option Id="ENUM.iSTATE39" value="eq7&apos;b1010011"/>
+        <Option Id="ENUM.iSTATE4" value="eq7&apos;b0000100"/>
+        <Option Id="ENUM.iSTATE40" value="eq7&apos;b1010100"/>
+        <Option Id="ENUM.iSTATE41" value="eq7&apos;b1010101"/>
+        <Option Id="ENUM.iSTATE42" value="eq7&apos;b1010110"/>
+        <Option Id="ENUM.iSTATE43" value="eq7&apos;b1010111"/>
+        <Option Id="ENUM.iSTATE44" value="eq7&apos;b1011000"/>
+        <Option Id="ENUM.iSTATE45" value="eq7&apos;b1011001"/>
+        <Option Id="ENUM.iSTATE46" value="eq7&apos;b0011011"/>
+        <Option Id="ENUM.iSTATE47" value="eq7&apos;b0011100"/>
+        <Option Id="ENUM.iSTATE48" value="eq7&apos;b0011101"/>
+        <Option Id="ENUM.iSTATE49" value="eq7&apos;b0011110"/>
+        <Option Id="ENUM.iSTATE5" value="eq7&apos;b0000101"/>
+        <Option Id="ENUM.iSTATE50" value="eq7&apos;b0011111"/>
+        <Option Id="ENUM.iSTATE51" value="eq7&apos;b0100000"/>
+        <Option Id="ENUM.iSTATE52" value="eq7&apos;b0100010"/>
+        <Option Id="ENUM.iSTATE53" value="eq7&apos;b0100001"/>
+        <Option Id="ENUM.iSTATE54" value="eq7&apos;b0100011"/>
+        <Option Id="ENUM.iSTATE55" value="eq7&apos;b0100100"/>
+        <Option Id="ENUM.iSTATE56" value="eq7&apos;b0100101"/>
+        <Option Id="ENUM.iSTATE57" value="eq7&apos;b0100110"/>
+        <Option Id="ENUM.iSTATE58" value="eq7&apos;b0100111"/>
+        <Option Id="ENUM.iSTATE59" value="eq7&apos;b0101000"/>
+        <Option Id="ENUM.iSTATE6" value="eq7&apos;b0000110"/>
+        <Option Id="ENUM.iSTATE60" value="eq7&apos;b0101001"/>
+        <Option Id="ENUM.iSTATE61" value="eq7&apos;b0101010"/>
+        <Option Id="ENUM.iSTATE62" value="eq7&apos;b0101011"/>
+        <Option Id="ENUM.iSTATE63" value="eq7&apos;b0101100"/>
+        <Option Id="ENUM.iSTATE64" value="eq7&apos;b0101101"/>
+        <Option Id="ENUM.iSTATE65" value="eq7&apos;b0101110"/>
+        <Option Id="ENUM.iSTATE66" value="eq7&apos;b0101111"/>
+        <Option Id="ENUM.iSTATE67" value="eq7&apos;b0110000"/>
+        <Option Id="ENUM.iSTATE68" value="eq7&apos;b0110001"/>
+        <Option Id="ENUM.iSTATE69" value="eq7&apos;b0110010"/>
+        <Option Id="ENUM.iSTATE7" value="eq7&apos;b0000111"/>
+        <Option Id="ENUM.iSTATE70" value="eq7&apos;b0110011"/>
+        <Option Id="ENUM.iSTATE71" value="eq7&apos;b0110100"/>
+        <Option Id="ENUM.iSTATE72" value="eq7&apos;b0111011"/>
+        <Option Id="ENUM.iSTATE73" value="eq7&apos;b0111100"/>
+        <Option Id="ENUM.iSTATE74" value="eq7&apos;b0111101"/>
+        <Option Id="ENUM.iSTATE75" value="eq7&apos;b0111110"/>
+        <Option Id="ENUM.iSTATE76" value="eq7&apos;b0111111"/>
+        <Option Id="ENUM.iSTATE77" value="eq7&apos;b1000000"/>
+        <Option Id="ENUM.iSTATE78" value="eq7&apos;b1000001"/>
+        <Option Id="ENUM.iSTATE79" value="eq7&apos;b1000010"/>
+        <Option Id="ENUM.iSTATE8" value="eq7&apos;b0001000"/>
+        <Option Id="ENUM.iSTATE80" value="eq7&apos;b1000011"/>
+        <Option Id="ENUM.iSTATE81" value="eq7&apos;b1000100"/>
+        <Option Id="ENUM.iSTATE82" value="eq7&apos;b1000101"/>
+        <Option Id="ENUM.iSTATE83" value="eq7&apos;b1000110"/>
+        <Option Id="ENUM.iSTATE84" value="eq7&apos;b0110101"/>
+        <Option Id="ENUM.iSTATE85" value="eq7&apos;b0110110"/>
+        <Option Id="ENUM.iSTATE86" value="eq7&apos;b0110111"/>
+        <Option Id="ENUM.iSTATE87" value="eq7&apos;b0111000"/>
+        <Option Id="ENUM.iSTATE88" value="eq7&apos;b0111001"/>
+        <Option Id="ENUM.iSTATE89" value="eq7&apos;b0111010"/>
+        <Option Id="ENUM.iSTATE9" value="eq7&apos;b0001001"/>
+        <Option Id="ENUM.iSTATE90" value="eq7&apos;b1011011"/>
+        <Option Id="ENUM.iSTATE91" value="eq7&apos;b1011100"/>
+        <Option Id="ENUM.iSTATE92" value="eq7&apos;b1011010"/>
       </probeOptions>
       <nets>
         <net name="comp1/CPU1/control_unit1/current_state[6]"/>
@@ -1656,7 +1750,7 @@
         <net name="comp1/CPU1/control_unit1/current_state[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq4&apos;hX"/>
         <Option Id="COMPARE_VALUE.0" value="eq4&apos;hX"/>
@@ -1699,6 +1793,29 @@
       </probeOptions>
       <nets>
         <net name="comp1/CPU1/control_unit1/internal_interrupt"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq3&apos;hX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq3&apos;hX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_3"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[3:1]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq3&apos;hX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="comp1/CPU1/control_unit1/interrupt_debug[3]"/>
+        <net name="comp1/CPU1/control_unit1/interrupt_debug[2]"/>
+        <net name="comp1/CPU1/control_unit1/interrupt_debug[1]"/>
       </nets>
     </probe>
     <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
@@ -1781,7 +1898,7 @@
         <net name="comp1/CPU1/data_path1/BUS1[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq8&apos;hXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq8&apos;hXX"/>
@@ -2084,19 +2201,40 @@
     </probe>
     <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
-        <Option Id="CAPTURE_COMPARE_VALUE" value="eq4&apos;hX"/>
-        <Option Id="COMPARE_VALUE.0" value="eq4&apos;hX"/>
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq1&apos;bX"/>
         <Option Id="DISPLAY_AS_ENUM" value="1"/>
         <Option Id="DISPLAY_HINT" value=""/>
         <Option Id="DISPLAY_RADIX" value="HEX"/>
         <Option Id="DISPLAY_VISIBILITY" value=""/>
-        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="HW_ILA" value="hw_ila_3"/>
         <Option Id="LINK_TO_WAVEFORM" value="1"/>
-        <Option Id="MAP" value="probe2[3:0]"/>
+        <Option Id="MAP" value="probe0[0]"/>
         <Option Id="NAME.CUSTOM" value=""/>
         <Option Id="NAME.SELECT" value="Long"/>
         <Option Id="SOURCE" value="netlist"/>
-        <Option Id="TRIGGER_COMPARE_VALUE" value="eq4&apos;hX"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq1&apos;bX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="interrupt[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq4&apos;hX"/>
+        <Option Id="COMPARE_VALUE.0" value="neq4&apos;h0"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_3"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[3:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="neq4&apos;h0"/>
         <Option Id="WAVEFORM_STYLE" value="Digital"/>
       </probeOptions>
       <nets>
