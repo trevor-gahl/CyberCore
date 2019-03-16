@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity stack_1 is
+entity stack_core_1 is
   port (address  : in  std_logic_vector (7 downto 0);
         clock    : in  std_logic;
         data_out : out std_logic_vector (7 downto 0);
@@ -10,7 +10,7 @@ entity stack_1 is
         write    : in  std_logic);
 end entity;
 
-architecture Behavioral of stack_1 is
+architecture Behavioral of stack__core_1 is
 
   type stack is array (200 to 255) of std_logic_vector(7 downto 0);
   signal stack_value : stack;
@@ -28,7 +28,7 @@ begin
     end if;
   end process;
 
-  stack_1 : process(clock)
+  stack__core_1 : process(clock)
   begin
     if(clock'event and clock = '1') then
       if(EN = '1' and write = '1') then
